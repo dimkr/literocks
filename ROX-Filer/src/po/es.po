@@ -3850,35 +3850,6 @@ msgstr "Gruesa"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Usar rejilla de 32 píxeles para posicionar los iconos en el escritorio"
 
-#: tips:126
-#: tips:128
-msgid "Iconified windows"
-msgstr "Ventanas como iconos"
-
-#: tips:127
-msgid "Most window managers provide a way to iconify (or 'minimise') windows, and various programs, including ROX-Filer, can be used to display the iconified windows."
-msgstr "La mayoría de gestores de ventanas proporcionan una forma de «iconificar» (o «minimizar»), las ventanas, de diversos programas, entre ellos «ROX-Filer», puede utilizarlo para mostrar las ventanas como iconos."
-
-#: tips:129
-msgid "Show iconified windows"
-msgstr "Mostrar ventanas como iconos"
-
-#: tips:130
-msgid "If this option is on, the filer will show each iconified window as a small button on the pinboard. Requires a compatible window manager, and the pinboard must be in use."
-msgstr "Activada esta opción, el gestor muestra cada ventana como un pequeño botón en el tablero. Requiere un gestor de ventanas compatible, y el tablero debe estar en uso."
-
-#: tips:131
-msgid "Show per workspace"
-msgstr "Mostrar por espacio de trabajo"
-
-#: tips:132
-msgid "If this option is on, the filer will only show iconified windows associated with the current workspace."
-msgstr "Activada esta opción, el gestor sólo mostrará como iconos las ventanas asociadas con el actual espacio de trabajo."
-
-#: tips:133
-msgid "Iconify to the"
-msgstr "Poner los iconos"
-
 #: tips:134
 msgid "top-left"
 msgstr "arriba a la izquierda"
@@ -3906,10 +3877,6 @@ msgstr "horizontal"
 #: tips:140
 msgid "vertically"
 msgstr "vertical"
-
-#: tips:141
-msgid "Sometimes the filer doesn't know about your desktop furniture and puts iconified windows under (for example) the Gnome panel. You can define a top or bottom margin to avoid placing the icons there. The filer already knows about its own panel."
-msgstr "Algunas veces el gestor no sabe de los demás objetos que puede haber en el escritorio y pone las ventanas iconificadas debajo, por ejemplo, del panel de Gnome. Usted puede definir un margen inferior para evitar colocar iconos ahí. El gestor ya sabe de su propio panel."
 
 #: tips:142
 msgid "Top margin"

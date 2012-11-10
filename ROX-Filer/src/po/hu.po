@@ -3929,35 +3929,6 @@ msgstr "Durva"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Az ikonok 32 képpont méretű rácshoz igazodnak."
 
-#: tips:153
-#: tips:155
-msgid "Iconified windows"
-msgstr "Ikonizált ablakok"
-
-#: tips:154
-msgid "Most window managers provide a way to iconify (or 'minimise') windows, and various programs, including ROX-Filer, can be used to display the iconified windows."
-msgstr "A legtöbb ablakkezelő képes az ablakok ikonizálására (vagy \"minimalizálására\"), és különféle programok (köztük a ROX-Filer) meg tudják jeleníteni ezeket az ablakokat."
-
-#: tips:156
-msgid "Show iconified windows"
-msgstr "Ikonizált ablakok mutatása"
-
-#: tips:157
-msgid "If this option is on, the filer will show each iconified window as a small button on the pinboard. Requires a compatible window manager, and the pinboard must be in use."
-msgstr "Engedélyezésekor az asztalon kis gombokként megjelennek az ikonizált ablakok. Ehhez megfelelő ablakkezelő szükséges, és be kell kapcsolni a pinboardot."
-
-#: tips:158
-msgid "Show per workspace"
-msgstr "Csak egy munkaterület ablakait mutassa"
-
-#: tips:159
-msgid "If this option is on, the filer will only show iconified windows associated with the current workspace."
-msgstr "Engedélyezésekor csak az aktuális munkaterülethez tartozó ikonizált ablakok látszanak."
-
-#: tips:160
-msgid "Iconify to the"
-msgstr "Ikonizálás a"
-
 #: tips:161
 msgid "top-left"
 msgstr "bal felső"
@@ -3985,10 +3956,6 @@ msgstr "vízszintesen"
 #: tips:167
 msgid "vertically"
 msgstr "függőlegesen"
-
-#: tips:168
-msgid "Sometimes the filer doesn't know about your desktop furniture and puts iconified windows under (for example) the Gnome panel. You can define a top or bottom margin to avoid placing the icons there. The filer already knows about its own panel."
-msgstr "A fájlkezelő néha nem ismeri fel az asztal elrendezését, ezért az ikonizált ablakokat (például) a Gnome panelje alá helyezi. Itt adható meg az a felső és alsó margó, ahová nem kerülnek ikonok. A fájlkezelő a saját paneljeinek helyét már ismeri."
 
 #: tips:169
 msgid "Top margin"

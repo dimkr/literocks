@@ -4011,49 +4011,6 @@ msgstr "Kém"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Dùng lưới 32 pixel cho vị trí biểu tượng trên desktop."
 
-#: tips:126 tips:128
-msgid "Iconified windows"
-msgstr "Thu nhỏ cửa sổ"
-
-#: tips:127
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"Hầu hết các trình quản lý cửa sổ hỗ trợ một cách để thu nhỏ cửa sổ và các "
-"ứng dụng khác, bao gồm cả ROX-Filer, có thể dùng để hiển thị các cửa sổ thu "
-"nhỏ."
-
-#: tips:129
-msgid "Show iconified windows"
-msgstr "Hiện cửa sổ thu nhỏ"
-
-#: tips:130
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-"ROX-Filer sẽ hiện cửa sổ thu nhỏ như một nút nhỏ trên pinboard. Yêu cầu một "
-"trình quản lý cửa sổ tương thích và pinboard phải được dùng."
-
-#: tips:131
-msgid "Show per workspace"
-msgstr "Hiển thị từng khung làm việc"
-
-#: tips:132
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-"Nếu bật tùy chọn này, ROX-Filer sẽ chỉ hiển thị các cửa sổ đã thu nhỏ có "
-"trong khung làm việc (ưorkspace) hiện tại."
-
-#: tips:133
-msgid "Iconify to the"
-msgstr "Thu nhỏ đến"
-
 #: tips:134
 msgid "top-left"
 msgstr "trên-trái"
@@ -4081,17 +4038,6 @@ msgstr "phương ngang"
 #: tips:140
 msgid "vertically"
 msgstr "phương dọc"
-
-#: tips:141
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
-"Thỉnh thỏang ROX-Filer không biết desktop của bạn và đặt cửa sổ đã thu nhỏ "
-"xuống (ví dụ) thanh panel của Gnome. Bạn có thể xác định một lề trên hay "
-"dưới để đặt biểu tượng ở đó. ROX-Filer nhận biết được panel của nó :)."
 
 #: tips:142
 msgid "Top margin"

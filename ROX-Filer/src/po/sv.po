@@ -3989,51 +3989,6 @@ msgstr "Grovt"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Använd ett 32-pixlarsnät för placering av ikoner på skrivbordet."
 
-#: tips:147 tips:149
-#, fuzzy
-msgid "Iconified windows"
-msgstr "Minimerade fönster"
-
-#: tips:148
-#, fuzzy
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"De flesta fönsterhanterare tillhandahåller ett sätt att minimera "
-"(ikonifiera)\n"
-"fönster och vissa program, som ROX-Filer, kan användas för att visa "
-"minimerade\n"
-"fönster. Om detta är påslaget visas varje minimerat katalogfönster som en\n"
-"liten knapp på skärmen. Kräver en kompatibel fönsterhanterare."
-
-#: tips:150
-#, fuzzy
-msgid "Show iconified windows"
-msgstr "Visa minimerade fönster"
-
-#: tips:151
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-
-#: tips:152
-msgid "Show per workspace"
-msgstr ""
-
-#: tips:153
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-
-#: tips:154
-msgid "Iconify to the"
-msgstr "Minimera till"
-
 #: tips:155
 msgid "top-left"
 msgstr "övre vänstra hörnet"
@@ -4061,14 +4016,6 @@ msgstr "horisontellt"
 #: tips:161
 msgid "vertically"
 msgstr "vertikalt"
-
-#: tips:162
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
 
 #: tips:163
 msgid "Top margin"

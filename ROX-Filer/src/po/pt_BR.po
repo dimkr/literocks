@@ -3858,35 +3858,6 @@ msgstr "Grossa"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Usar uma grade de 32 pixel para posicionar os ícones na área de trabalho."
 
-#: tips:126
-#: tips:128
-msgid "Iconified windows"
-msgstr "Janelas iconificadas"
-
-#: tips:127
-msgid "Most window managers provide a way to iconify (or 'minimise') windows, and various programs, including ROX-Filer, can be used to display the iconified windows."
-msgstr "A maioria dos gerenciadores de janelas provê uma maneira de iconificar (ou 'minimizar') janelas e vários programas, incluindo o ROX-Filer, podem ser usados para exibir as janelas iconificadas."
-
-#: tips:129
-msgid "Show iconified windows"
-msgstr "Exibir janelas iconificadas"
-
-#: tips:130
-msgid "If this option is on, the filer will show each iconified window as a small button on the pinboard. Requires a compatible window manager, and the pinboard must be in use."
-msgstr "Se esta opção estiver habilitada o gerente de arquivos exibirá cada janela iconificada como um pequeno botão no quadro. Requer um gerenciador de janelas compatível e o quadro deve estar em uso."
-
-#: tips:131
-msgid "Show per workspace"
-msgstr "Exibir por espaço de trabalho"
-
-#: tips:132
-msgid "If this option is on, the filer will only show iconified windows associated with the current workspace."
-msgstr "Se esta opção estiver habilitada o gerente de arquivos exibirá apenas as janelas iconificadas associadas ao espaço de trabalho atual."
-
-#: tips:133
-msgid "Iconify to the"
-msgstr "Iconificar para"
-
 #: tips:134
 msgid "top-left"
 msgstr "alto, à esquerda"
@@ -3914,10 +3885,6 @@ msgstr "horizontalmente"
 #: tips:140
 msgid "vertically"
 msgstr "verticalmente"
-
-#: tips:141
-msgid "Sometimes the filer doesn't know about your desktop furniture and puts iconified windows under (for example) the Gnome panel. You can define a top or bottom margin to avoid placing the icons there. The filer already knows about its own panel."
-msgstr "Às vezes o gerente de arquivos não conhece os objetos da sua área de trabalho e coloca as janela iconificadas por baixo do painel do Gnome (por exemplo). Você pode definir uma margem superior ou inferior em que os ícones não serão colocados. O gerente de arquivos conhece e sabe lidar com o seu próprio painel."
 
 #: tips:142
 msgid "Top margin"

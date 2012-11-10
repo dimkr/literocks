@@ -3977,52 +3977,6 @@ msgstr "Hrubá"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Pou¾ije se 32-pixelová møí¾ka pro umís»ování ikon na plo¹e."
 
-#: tips:147 tips:149
-msgid "Iconified windows"
-msgstr "Ikonifikovaná okna"
-
-#: tips:148
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"Vìt¹ina správcù oken umo¾òuje ikonifikovat (nebo 'minimalizovat') okna, a "
-"rùzné programy, vèetnì ROX-Fileru, mohou být pou¾ity ke zobrazování "
-"ikonifikovaných oken."
-
-#: tips:150
-msgid "Show iconified windows"
-msgstr "Zobrazovat ikonifikovaná okna"
-
-#: tips:151
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-"Tato volba zpùsobí, ¾e správce souborù zobrazí ka¾dé ikonifikované okno jako "
-"malé tlaèítko na plo¹e. Je potøeba kompatibilní správce oken a musí být "
-"pou¾ívána plocha."
-
-#: tips:152
-msgid "Show per workspace"
-msgstr ""
-
-#: tips:153
-#, fuzzy
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-"Tato volba zpùsobí, ¾e správce souborù zobrazí ka¾dé ikonifikované okno jako "
-"malé tlaèítko na plo¹e. Je potøeba kompatibilní správce oken a musí být "
-"pou¾ívána plocha."
-
-#: tips:154
-msgid "Iconify to the"
-msgstr "Ikonifikovat "
-
 #: tips:155
 msgid "top-left"
 msgstr "nahoøe-vlevo"
@@ -4050,14 +4004,6 @@ msgstr "horizontálním"
 #: tips:161
 msgid "vertically"
 msgstr "vertikálním"
-
-#: tips:162
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
 
 #: tips:163
 msgid "Top margin"

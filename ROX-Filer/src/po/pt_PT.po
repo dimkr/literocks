@@ -3959,51 +3959,6 @@ msgstr "Largo"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Usar uma grelha de 32 pixeis para posicionar os icones no desktop."
 
-#: tips:148 tips:150
-msgid "Iconified windows"
-msgstr "Janelas iconificadas"
-
-#: tips:149
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"A maioria dos gestores de janelas permitem iconificar (ou 'minimizar') "
-"janelas, e vários programas, incluindo o ROX-Filer, podem ser usados para "
-"mostrar janelas iconificadas."
-
-#: tips:151
-msgid "Show iconified windows"
-msgstr "Mostrar janelas iconificadas"
-
-#: tips:152
-#, fuzzy
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-"Com esta opção activa, o gestor mostra cada janela iconificada como um "
-"pequeno botão no pinboard. Requere um gestor de janelas compativel, e o "
-"pinboard tem que estar em uso."
-
-#: tips:153
-msgid "Show per workspace"
-msgstr "Mostrar por área de trabalho"
-
-#: tips:154
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-"Se esta opção está activa, o gestor apenas mostra as janelas iconificadas "
-"associadas à área de trabalho actual."
-
-#: tips:155
-msgid "Iconify to the"
-msgstr "Iconificar para o canto"
-
 #: tips:156
 msgid "top-left"
 msgstr "superior-esquerdo"
@@ -4031,18 +3986,6 @@ msgstr "horizontal"
 #: tips:162
 msgid "vertically"
 msgstr "vertical"
-
-#: tips:163
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
-"Por vezes o gestor de ficheiros não sabe nada sobre a 'mobília' no seu "
-"desktop e coloca janelas iconificadas por baixo (por exemplo) do painel do "
-"Gnome. Para evitar isto pode definir margens superior e inferior, onde os "
-"ícones não serão colocados. O gestor já sabe do seu próprio painel."
 
 #: tips:164
 msgid "Top margin"

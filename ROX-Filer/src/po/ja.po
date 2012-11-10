@@ -4152,49 +4152,6 @@ msgstr "粗い"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "デスクトップ上でアイコンを 32 ピクセル単位で移動、配置。"
 
-#: tips:126 tips:128
-msgid "Iconified windows"
-msgstr "最小化ウィンドウのアイコン表示"
-
-#: tips:127
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"ピンボードを有効にした時、ROXファイラーを含む様々な起動中のプログラムは、デス"
-"クトップにアイコン化することが出来ます"
-
-#: tips:129
-msgid "Show iconified windows"
-msgstr "アイコン化したウィンドウを表示"
-
-#: tips:130
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-"このオプションを利用すると、ファイラーウィンドウを最小化した際は、ピンボード"
-"にアイコンとして表示されるようになります。(機能をサポートするウィンドウマネー"
-"ジャ上でピンボードを使用している場合)。 "
-
-#: tips:131
-msgid "Show per workspace"
-msgstr "ワークスペース毎に表示"
-
-#: tips:132
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-"このオプションを利用すると、最小化アイコンは、カレントワークスペースのものの"
-"みが表示されるようになります。"
-
-#: tips:133
-msgid "Iconify to the"
-msgstr "アイコン化する場所"
-
 #: tips:134
 msgid "top-left"
 msgstr "左上"
@@ -4222,17 +4179,6 @@ msgstr "水平に"
 #: tips:140
 msgid "vertically"
 msgstr "垂直に"
-
-#: tips:141
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
-"ROX は、デスクトップ構成を認識し切れず、(例えば) Gnome パネルの下に最小化ウィ"
-"ンドウ(のアイコン)を置くような場合も有ります。下の上部余白、下部余白の設定に"
-"よりこれを回避することが出来ます。ROX パネルに関しては常に正常に認識されます"
 
 #: tips:142
 msgid "Top margin"

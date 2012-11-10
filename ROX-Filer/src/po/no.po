@@ -3956,48 +3956,6 @@ msgstr "Stor"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Bruker et 32-piksels gitter til å plassere ikoner på skrivebordet."
 
-#: tips:147 tips:149
-msgid "Iconified windows"
-msgstr "Minimerte vinduer"
-
-#: tips:148
-#, fuzzy
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"De fleste vindushåndterere har en måte å minimere vinduer på, og "
-"forskjellige programmer, f.eks. ROX-Filer, kan brukes til å vise de "
-"minimerte vinduene. Hvis dette alternativet er på, vil Filer vise alle "
-"minimerte vinduer som en liten knapp på skjermen. Krever en kompatibel "
-"vindushåndterer."
-
-#: tips:150
-msgid "Show iconified windows"
-msgstr "Vis minimerte vinduer"
-
-#: tips:151
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-
-#: tips:152
-msgid "Show per workspace"
-msgstr ""
-
-#: tips:153
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-
-#: tips:154
-msgid "Iconify to the"
-msgstr "Minimer til"
-
 #: tips:155
 msgid "top-left"
 msgstr "øvre venstre hjørne"
@@ -4025,14 +3983,6 @@ msgstr "horisontalt"
 #: tips:161
 msgid "vertically"
 msgstr "vertikalt"
-
-#: tips:162
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
 
 #: tips:163
 msgid "Top margin"

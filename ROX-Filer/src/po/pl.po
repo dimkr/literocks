@@ -3955,51 +3955,6 @@ msgstr "Duży"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Użyj siatki o rozmiarze 32 pikseli do rozmieszczenia ikon na biurku"
 
-#: tips:147 tips:149
-msgid "Iconified windows"
-msgstr "Zminimalizowane okna"
-
-#: tips:148
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"Większość menedżerów okien pozwala zminimalizować okna do ikony, a różne "
-"programy (w tym ROX-Filer) mogą być użyte do ich wyświetlenia."
-
-#: tips:150
-msgid "Show iconified windows"
-msgstr "Pokaż zminimalizowane okna"
-
-#: tips:151
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-"Po włączeniu tej opcji program będzie pokazywał każde zikonizowane okno jako "
-"przycisk na biurku. Wymaga to kompatybilnego menedżera okien i włączonego "
-"biurka."
-
-#: tips:152
-msgid "Show per workspace"
-msgstr ""
-
-#: tips:153
-#, fuzzy
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-"Po włączeniu tej opcji program będzie pokazywał każde zikonizowane okno jako "
-"przycisk na biurku. Wymaga to kompatybilnego menedżera okien i włączonego "
-"biurka."
-
-#: tips:154
-msgid "Iconify to the"
-msgstr "Minimalizuj do"
-
 #: tips:155
 msgid "top-left"
 msgstr "górnego-lewego"
@@ -4027,14 +3982,6 @@ msgstr "poziomie"
 #: tips:161
 msgid "vertically"
 msgstr "pionie"
-
-#: tips:162
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
 
 #: tips:163
 msgid "Top margin"

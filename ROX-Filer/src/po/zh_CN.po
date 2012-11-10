@@ -3888,44 +3888,6 @@ msgstr "粗糙的"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "以32像素图标在桌面显示"
 
-#: tips:126 tips:128
-msgid "Iconified windows"
-msgstr "图标化窗口"
-
-#: tips:127
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr "ROX-Filer 可以图标化(或最小化)窗口."
-
-#: tips:129
-msgid "Show iconified windows"
-msgstr "图标化窗口"
-
-#: tips:130
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-"ROX-Filer 会将图标化(或最小化)窗口，以按钮型式放在桌面上，唯需要一个相容的窗"
-"口管理员配合，并 ROX-Filer 的桌面必须启动."
-
-#: tips:131
-msgid "Show per workspace"
-msgstr "只显示当前工作区"
-
-#: tips:132
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr "开启此选项，ROX-Filer 只会显示当前工作区内的已图标化(或最小化)窗口"
-
-#: tips:133
-msgid "Iconify to the"
-msgstr "图标化后置于"
-
 #: tips:134
 msgid "top-left"
 msgstr "左上"
@@ -3953,16 +3915,6 @@ msgstr "平面"
 #: tips:140
 msgid "vertically"
 msgstr "垂直"
-
-#: tips:141
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
-"ROX-Filer 可能会忽略您的桌面环境布局，而将图标化窗口放到(例如)Gnome面板上，您"
-"可定义一个最顶或最底的边沿设置，以防止图标被放到这处"
 
 #: tips:142
 msgid "Top margin"

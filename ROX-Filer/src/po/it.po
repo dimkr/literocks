@@ -4105,50 +4105,6 @@ msgstr "Grosso"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Usa una griglia di 32 pixel per posizionare le icone sul desktop."
 
-#: tips:126 tips:128
-msgid "Iconified windows"
-msgstr "Finestre ridotte ad icona"
-
-#: tips:127
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"La maggior parte dei window manager permette di ridurre a icona (o "
-"«minimizzare») le finestre. Vari programmi, incluso ROX-Filer, possono essere "
-"usati per visualizzare le finestre ridotte a icona."
-
-#: tips:129
-msgid "Show iconified windows"
-msgstr "Mostrare le finestre ridotte ad icona"
-
-#: tips:130
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-"Se attivata, il filer mostra sulla bacheca ogni finestra ridotta a icona "
-"come un pulsante. Richiede un window manager compatibile e la bacheca deve "
-"essere attiva."
-
-#: tips:131
-msgid "Show per workspace"
-msgstr "Area di lavoro attuale"
-
-#: tips:132
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-"Se attivata, il filer mostra sulla bacheca solo le finestre ridotte a icona "
-"dell'attuale area di lavoro."
-
-#: tips:133
-msgid "Iconify to the"
-msgstr "Ridurre ad icona in"
-
 #: tips:134
 msgid "top-left"
 msgstr "alto a sinistra"
@@ -4176,18 +4132,6 @@ msgstr "orizzontale"
 #: tips:140
 msgid "vertically"
 msgstr "verticale"
-
-#: tips:141
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
-"A volte il filer non sa come è fatto il desktop e mette le finestre ridotte "
-"a icona, per esempio, sotto il pannello di Gnome. È possibile definire un "
-"margine in alto e uno in basso in modo da evitare di mettere lì le icone. Il "
-"filer conosce già le dimensioni dei suoi pannelli."
 
 #: tips:142
 msgid "Top margin"

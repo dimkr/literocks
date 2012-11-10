@@ -4207,50 +4207,6 @@ msgstr ""
 "Utiliser une grille avec pas de 32 pixels pour le positionnement des icônes "
 "sur le bureau."
 
-#: tips:153 tips:155
-msgid "Iconified windows"
-msgstr "Fenêtres iconifiées"
-
-#: tips:154
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"La plupart des gestionnaires de fenêtres fournissent une méthode pour "
-"iconifier (ou « minimiser ») les fenêtres, et divers programmes, dont ROX-"
-"Filer, peuvent servir à afficher les fenêtres iconifiées."
-
-#: tips:156
-msgid "Show iconified windows"
-msgstr "Montrer les fenêtres iconifiées"
-
-#: tips:157
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-"Si cette option est choisie, le filer montrera chaque fenêtre iconifiée sous "
-"forme d'un petit bouton sur le punaiseur. Cela nécessite un gestionnaire de "
-"fenêtres compatible, et le punaiseur doit être actif."
-
-#: tips:158
-msgid "Show per workspace"
-msgstr "Montrer par espace de travail"
-
-#: tips:159
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-"Si cette option est choisie, le filer ne montrera que les fenêtres "
-"iconifiées associées à l'espace de travail courant."
-
-#: tips:160
-msgid "Iconify to the"
-msgstr "Iconifier en"
-
 #: tips:161
 msgid "top-left"
 msgstr "haut à gauche"
@@ -4278,18 +4234,6 @@ msgstr "horizontalement"
 #: tips:167
 msgid "vertically"
 msgstr "verticalement"
-
-#: tips:168
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
-"Parfois le filer ne connaît pas vos accessoires de bureau et place les "
-"fenêtres iconifiées sous le panneau de Gnome (par exemple). Vous pouvez "
-"définir une marge en haut ou en bas pour éviter d'y placer des icônes. Le "
-"filer connaît déjà son propre panneau."
 
 #: tips:169
 msgid "Top margin"

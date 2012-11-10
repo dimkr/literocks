@@ -1397,17 +1397,6 @@
   </sect1>
 
   <sect1>
-   <title><anchor id="iconify" xreflabel="Iconified windows"/>Iconified windows on the pinboard</title>
-   <para>
-    When the pinboard is in use, ROX-Filer can be used to display an icon for each iconified
-    (or 'minimised') window. You can turn this on or off from the Options box. Iconified window icons
-    have a semi-transparent background slab effect, and can be dragged around.
-    Clicking on one will expand it back into the window it represents. Some
-    older window managers do not support this, and no icons will be shown.
-   </para>
-  </sect1>
-
-  <sect1>
    <title><anchor id="backdropapp" xreflabel="Backdrop applications"/>The pinboard backdrop image</title>
    <para>
     You can set any image for the backdrop by choosing <guimenuitem>Backdrop...</guimenuitem>

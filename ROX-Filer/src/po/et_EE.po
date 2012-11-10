@@ -3786,35 +3786,6 @@ msgstr "Ebatäpne"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Kasutatakse 32-pikslist sammu ikoonide töölauale paigutamisel."
 
-#: tips:148
-#: tips:150
-msgid "Iconified windows"
-msgstr "Minimeeritud aknad"
-
-#: tips:149
-msgid "Most window managers provide a way to iconify (or 'minimise') windows, and various programs, including ROX-Filer, can be used to display the iconified windows."
-msgstr "Enamus aknahaldureid pakuvad võimalust minimeerida (ikoniseerida) aknaid ja neid aknaid oskavad näidata mitmed programmid, sealhulgas failihaldur Rox."
-
-#: tips:151
-msgid "Show iconified windows"
-msgstr "Näita minimeeritud aknaid"
-
-#: tips:152
-msgid "If this option is on, the filer will show each iconified window as a small button on the pinboard. Requires a compatible window manager, and the pinboard must be in use."
-msgstr "Iga minimeeritud akna kohta näidatakse töölaual ikooni. Eeldab ühilduvat aknahaldurit ja Rox töölaua kasutuses olemist."
-
-#: tips:153
-msgid "Show per workspace"
-msgstr "Näita töölaua kohta"
-
-#: tips:154
-msgid "If this option is on, the filer will only show iconified windows associated with the current workspace."
-msgstr "Kui see valik on lubatud, näidatakse ainult praeguse töölaua minimeeritud aknaid."
-
-#: tips:155
-msgid "Iconify to the"
-msgstr "Minimeeritakse"
-
 #: tips:156
 msgid "top-left"
 msgstr "vasakule üles"
@@ -3842,10 +3813,6 @@ msgstr "horisontaalselt"
 #: tips:162
 msgid "vertically"
 msgstr "vertikaalselt"
-
-#: tips:163
-msgid "Sometimes the filer doesn't know about your desktop furniture and puts iconified windows under (for example) the Gnome panel. You can define a top or bottom margin to avoid placing the icons there. The filer already knows about its own panel."
-msgstr "Mõnikord failihaldur ei ole teadlik muudest töölaual asuvatest graafilistest elementidest ja paigutab minimeeritud aknaid (näiteks) Gnome paneeli alla. Te võite määrata ülemise või alumise piiri, millega keelate failide ekraani servale lähemale paigutamise. Failihaldur on omaenda paneelidest teadlik."
 
 #: tips:164
 msgid "Top margin"

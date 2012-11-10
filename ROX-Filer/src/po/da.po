@@ -4006,52 +4006,6 @@ msgstr "Groft"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Bruger et 32-pixel gitter til at placere ikoner på desktoppen."
 
-#: tips:147 tips:149
-msgid "Iconified windows"
-msgstr "Skjulte vinduer"
-
-#: tips:148
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"De fleste vindues-håndterere indeholder en mulighed for at skjule (eller "
-"'minimere') vinduer, og diverse programmer, der i blandt ROX-Filer, kan "
-"bruges til at vise disse skjulte vinduer."
-
-#: tips:150
-msgid "Show iconified windows"
-msgstr "Vis skjulte vinduer"
-
-#: tips:151
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-"Hvis denne mulighed er slået til, vil 'fileren' vise skjulte vinduer som små "
-"knapper på opslagstavlen. Dette kræver en kompatibel vindues-håndtering, og "
-"at opslagstavlen er i brug."
-
-#: tips:152
-msgid "Show per workspace"
-msgstr ""
-
-#: tips:153
-#, fuzzy
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-"Hvis denne mulighed er slået til, vil 'fileren' vise skjulte vinduer som små "
-"knapper på opslagstavlen. Dette kræver en kompatibel vindues-håndtering, og "
-"at opslagstavlen er i brug."
-
-#: tips:154
-msgid "Iconify to the"
-msgstr "Vis skjulte vinduer"
-
 #: tips:155
 msgid "top-left"
 msgstr "øverst til venstre"
@@ -4079,18 +4033,6 @@ msgstr "vandret linje"
 #: tips:161
 msgid "vertically"
 msgstr "lodret linje"
-
-#: tips:162
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
-"Nogle gange kender 'fileren' ikke til hvad du har på skrivebordet, og kan "
-"finde på at lægge skjulte vinduer nedenunder (f.eks.) Gnome-panelet. Du kan "
-"definere en top og/eller bund margen for at undgå at ikonerne bliver "
-"placeret dér. 'Fileren' kender allerede til sine egne paneler."
 
 #: tips:163
 msgid "Top margin"

@@ -4044,50 +4044,6 @@ msgstr "Grof"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Gebruik een 32-pixel raster om iconen op de desktop te plaatsen."
 
-#: tips:147 tips:149
-msgid "Iconified windows"
-msgstr "Geminimaliseerde vensters"
-
-#: tips:148
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"De meeste window managers hebben een manier om vensters te minimaliseren, en "
-"verschillende programma's, inclusief ROX-Filer, kunnen worden gebruikt om de "
-"geminimaliseerde vensters te tonen."
-
-#: tips:150
-msgid "Show iconified windows"
-msgstr "Toon geminimaliseerde vensters"
-
-#: tips:151
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-"Als deze optie aan staat zal ROX elk geminimaliseerd venster tonen als een "
-"kleine knop op het prikbord. Dit vereist een compatibele window manager, en "
-"het prikbord moet in gebruik zijn."
-
-#: tips:152
-msgid "Show per workspace"
-msgstr "Toon per werkplek"
-
-#: tips:153
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-"Als deze optie aan staat zal ROX enkel geminimaliseerde vensters tonen die "
-"behoren to het huidige werkplek."
-
-#: tips:154
-msgid "Iconify to the"
-msgstr "Minimaliseer naar"
-
 #: tips:155
 msgid "top-left"
 msgstr "linksboven"
@@ -4115,18 +4071,6 @@ msgstr "horizontale richting"
 #: tips:161
 msgid "vertically"
 msgstr "vertikale richting"
-
-#: tips:162
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
-"Soms kent ROX-Filer de inrichting van uw desktop niet "
-"waardoorgeminimaliseerde vensters (bij voorbeeld) onder het Gnome paneel "
-"geplaatst worden. Dit kan vermeden worden door een boven en onder grens in "
-"te stellen. ROX-Filer is reeds bewust van zijn eigen paneel."
 
 #: tips:163
 msgid "Top margin"

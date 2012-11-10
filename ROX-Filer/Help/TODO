@@ -43,11 +43,7 @@ Bookmarks:
 - Show selection groups?
 - Auto-add recent operations
 
-Iconified directories show the directory's icon (Marcus Lundblad)?
-
 Some way to process the files found by Find.
-
-Active icons in iconified windows (Christian V. J. Brüssow).
 
 When all selected items have the same type, show handlers for that type on
 the SendTo menu (Arnaud Calvo)?

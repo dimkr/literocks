@@ -4080,49 +4080,6 @@ msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr ""
 "Використовувати 32-крапкову сітку для розміщення піктограм на стільниці."
 
-#: tips:151 tips:153
-msgid "Iconified windows"
-msgstr "Приховані вікна"
-
-#: tips:152
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"Більшість менеджерів вікон можуть приховувати (або 'мінімізувати') вікна, і "
-"деякі програми, включаючи ROX-Filer, можуть показувати приховані вікна."
-
-#: tips:154
-msgid "Show iconified windows"
-msgstr "Показувати приховані вікна"
-
-#: tips:155
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-"Якщо активовано, файлер буде показувати кожне приховане вікно у вигляді "
-"маленької кнопки на стільниці. Потребує сумісного менеджера вікон, і "
-"активної стільниці."
-
-#: tips:156
-msgid "Show per workspace"
-msgstr "Показувати тільки з теперішньої стільниці"
-
-#: tips:157
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-"Якщо активовано, файлер буде показувати приховані вікна тільки з даної "
-"стільниці."
-
-#: tips:158
-msgid "Iconify to the"
-msgstr "Розташовувати"
-
 #: tips:159
 msgid "top-left"
 msgstr "зверху зліва"
@@ -4150,18 +4107,6 @@ msgstr "горизонтально"
 #: tips:165
 msgid "vertically"
 msgstr "вертикально"
-
-#: tips:166
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
-"Часом файлер не знає про \"меблі\" вашої стільниці, і може покласти "
-"піктограми (для прикладу) під панель Gnome. Ви можете призначити верхню або "
-"нижню межу щоб уникнути розташування піктограм де не треба. Файлер знає про "
-"свої панелі."
 
 #: tips:167
 msgid "Top margin"

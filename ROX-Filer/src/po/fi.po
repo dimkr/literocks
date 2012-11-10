@@ -4007,52 +4007,6 @@ msgstr "Karkea"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Käytä 32 kuvapisteen ruudukkoa kuvakkeiden sijoitteluun työpöydällä."
 
-#: tips:147 tips:149
-msgid "Iconified windows"
-msgstr "Pienennetyt ikkunat"
-
-#: tips:148
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"Useimmat ikkunamanagerit tarjoavat keinon ikonisoida (tai 'pienentää') "
-"ikkunoita, ja useat ohjelmat, ROX-Filer mukaanluettuna, kykenevät näyttämään "
-"nämä pienennetyt ikkunat."
-
-#: tips:150
-msgid "Show iconified windows"
-msgstr "Näytä pienennetyt ikkunat"
-
-#: tips:151
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-"Tämän ollessa asetettuna tiedostonhallinta näyttää jokaisen pienennetyn "
-"ikkunan pienenä kuvakkeena työpöydällä. Vaatii yhteensopivan "
-"ikkunanmanagerin ja ROX-työpöydän pitää olla käytössä."
-
-#: tips:152
-msgid "Show per workspace"
-msgstr ""
-
-#: tips:153
-#, fuzzy
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-"Tämän ollessa asetettuna tiedostonhallinta näyttää jokaisen pienennetyn "
-"ikkunan pienenä kuvakkeena työpöydällä. Vaatii yhteensopivan "
-"ikkunanmanagerin ja ROX-työpöydän pitää olla käytössä."
-
-#: tips:154
-msgid "Iconify to the"
-msgstr "Pienennä"
-
 #: tips:155
 msgid "top-left"
 msgstr "ylävasemmalle"
@@ -4080,18 +4034,6 @@ msgstr "vaakasuuntaisesti"
 #: tips:161
 msgid "vertically"
 msgstr "pystysuuntaisesti"
-
-#: tips:162
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
-"Joskus tiedostonhallinta ei tiedä työpöydälläsi olevista 'kalusteista', ja "
-"asettaa pienennetyt ikkunat (vaikkapa) Gnomen paneelin alle. Voit määrittää "
-"ylä- ja alamarginaalit välttääksesi kuvakkeiden sijoittelua näille alueille. "
-"Tiedostonhallinta tietää kyllä oman paneelinsa sijainnin."
 
 #: tips:163
 msgid "Top margin"

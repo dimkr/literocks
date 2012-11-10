@@ -3850,35 +3850,6 @@ msgstr "Grosa"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Usar rella de 32 píxeles para posicionar as iconas no escritorio"
 
-#: tips:126
-#: tips:128
-msgid "Iconified windows"
-msgstr "Fiestras como iconas"
-
-#: tips:127
-msgid "Most window managers provide a way to iconify (or 'minimise') windows, and various programs, including ROX-Filer, can be used to display the iconified windows."
-msgstr "A maioría de xestores de fiestras proporcionan unha forma de «iconificar» (ou «minimizar»), as fiestras, e diversos programas, entre eles «ROX-Filer», poden utilizar para amosar as fiestras coma iconas."
-
-#: tips:129
-msgid "Show iconified windows"
-msgstr "Amosar fiestras como iconas"
-
-#: tips:130
-msgid "If this option is on, the filer will show each iconified window as a small button on the pinboard. Requires a compatible window manager, and the pinboard must be in use."
-msgstr "Activada esta opción, o xestor amosa cada fiestra como un pequeno botón no taboleiro. Require un xestor de fiestras compatible, e o taboleiro debe estar en uso."
-
-#: tips:131
-msgid "Show per workspace"
-msgstr "Amosar por espazo de traballo"
-
-#: tips:132
-msgid "If this option is on, the filer will only show iconified windows associated with the current workspace."
-msgstr "Activada esta opción, o xestor só amosará como iconas as fiestras asociadas co actual espazo de traballo."
-
-#: tips:133
-msgid "Iconify to the"
-msgstr "Poñer as iconas"
-
 #: tips:134
 msgid "top-left"
 msgstr "arriba a esquerda"
@@ -3906,10 +3877,6 @@ msgstr "horizontal"
 #: tips:140
 msgid "vertically"
 msgstr "vertical"
-
-#: tips:141
-msgid "Sometimes the filer doesn't know about your desktop furniture and puts iconified windows under (for example) the Gnome panel. You can define a top or bottom margin to avoid placing the icons there. The filer already knows about its own panel."
-msgstr "As veces o xestor non sabe dos seus obxectos no escritorio e pon fiestras en miniatura baixo (por exemplo) o panel de Gnome. Vostede pode definir unha marxe inferior para evitar colocar as iconas alí. O xestor xa sabe así do seu propio panel."
 
 #: tips:142
 msgid "Top margin"

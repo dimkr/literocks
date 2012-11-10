@@ -1701,18 +1701,6 @@ Créez un dossier pour l'appliquette (ex <filename>MonAppliquette</filename>).
 </sect1>
 
 <sect1>
- <title><anchor id="iconify" xreflabel="Iconified windows"/>Fenêtres iconifiées sur le punaiseur</title>
- <para>
-  Quand le punaiseur est utilisé, ROX-Filer peut afficher une icône pour chaque fenêtre iconisée (ou 
-  "réduite"). Vous pouvez activer/désactiver cette fonctionnalité dans la boîte Options. 
-  Les icônes des fenêtres réduites sont sur un fond semi-transparent et peuvent être déplacées à la souris.
-  Si vous cliquez sur une de ces icônes, celle-ci reprendra la taille normale de l'application qu'elle représente. 
-  Quelques anciens gestionnaires de fenêtres ne sont pas compatibles avec cette fonctionnalité, et n'affichent 
-  donc pas ces icônes.
- </para>
-</sect1>
-
-<sect1>
  <title><anchor id="backdropapp" xreflabel="Backdrop applications"/>L'image de fond</title>
  <para>
   Vous pouvez choisir une image de fond pour le punaiseur en choisissant <guimenuitem>Image de fond...</guimenuitem>   

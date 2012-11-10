@@ -4050,50 +4050,6 @@ msgstr "Грубый"
 msgid "Use a 32-pixel grid for positioning icons on the desktop."
 msgstr "Для размещения значков на рабочем столе используется 32-х пиксельная сетка."
 
-#: tips:126 tips:128
-msgid "Iconified windows"
-msgstr "Свернутые окна"
-
-#: tips:127
-msgid ""
-"Most window managers provide a way to iconify (or 'minimise') windows, and "
-"various programs, including ROX-Filer, can be used to display the iconified "
-"windows."
-msgstr ""
-"Многие оконные менеджеры предоставляют возможность сворачивать (или "
-"\"минимизировать\") окна и многие программы, включая ROX-Filer, могут "
-"использоваться для отображения свернутых окон."
-
-#: tips:129
-msgid "Show iconified windows"
-msgstr "Показывать свернутые окна"
-
-#: tips:130
-msgid ""
-"If this option is on, the filer will show each iconified window as a small "
-"button on the pinboard. Requires a compatible window manager, and the "
-"pinboard must be in use."
-msgstr ""
-"Если эта опция включена, ROX-Filer будет показывать каждое свернутое окно "
-"как небольшую кнопку на витрине. Для этого требуется использовать "
-"совместимый оконный менеджер и задействовать витрину."
-
-#: tips:131
-msgid "Show per workspace"
-msgstr "Показывать для каждого рабочего места"
-
-#: tips:132
-msgid ""
-"If this option is on, the filer will only show iconified windows associated "
-"with the current workspace."
-msgstr ""
-"Если эта опция включена, ROX будет показывать только те свёрнутые окна, "
-"которые располагаются на текущем рабочем месте."
-
-#: tips:133
-msgid "Iconify to the"
-msgstr "Размещать свёрнутые окна"
-
 #: tips:134
 msgid "top-left"
 msgstr "сверху-слева"
@@ -4121,18 +4077,6 @@ msgstr "горизонтально"
 #: tips:140
 msgid "vertically"
 msgstr "вертикально"
-
-#: tips:141
-msgid ""
-"Sometimes the filer doesn't know about your desktop furniture and puts "
-"iconified windows under (for example) the Gnome panel. You can define a top "
-"or bottom margin to avoid placing the icons there. The filer already knows "
-"about its own panel."
-msgstr ""
-"Иногда файловый менеджер не знает о дополнительных элементах на вашем "
-"рабочем столе и располагает свёрнутые окна под, например, панелью Gnome. Вы "
-"можете задать верхнее или нижнее поле, чтобы избежать попадание свёрнутых "
-"окон в эту область. ROX уже знает о местоположении собственной панели."
 
 #: tips:142
 msgid "Top margin"
