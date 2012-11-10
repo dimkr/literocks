@@ -2255,7 +2255,6 @@ msgid "Blank file"
 msgstr "Archivo en blanco"
 
 #: menu.c:240
-#: tasklist.c:309
 msgid "Window"
 msgstr "Ventana"
 

@@ -2106,7 +2106,7 @@ msgstr "Ny"
 msgid "Blank file"
 msgstr "Tom fil"
 
-#: menu.c:235 tasklist.c:308
+#: menu.c:235
 msgid "Window"
 msgstr "Fönster"
 

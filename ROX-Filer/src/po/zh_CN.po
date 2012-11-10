@@ -2161,7 +2161,7 @@ msgstr "新增"
 msgid "Blank file"
 msgstr "空文件"
 
-#: menu.c:240 tasklist.c:309
+#: menu.c:240
 msgid "Window"
 msgstr "窗口"
 

@@ -2116,7 +2116,7 @@ msgstr "Nowy"
 msgid "Blank file"
 msgstr "Pusty plik"
 
-#: menu.c:235 tasklist.c:308
+#: menu.c:235
 msgid "Window"
 msgstr "Okno"
 

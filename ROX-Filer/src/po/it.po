@@ -2269,7 +2269,7 @@ msgstr "Nuovo"
 msgid "Blank file"
 msgstr "File vuoto"
 
-#: menu.c:240 tasklist.c:309
+#: menu.c:240
 msgid "Window"
 msgstr "Finestra"
 

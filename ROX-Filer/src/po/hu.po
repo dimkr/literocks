@@ -2248,7 +2248,6 @@ msgid "Blank file"
 msgstr "Üres fájl"
 
 #: menu.c:236
-#: tasklist.c:306
 msgid "Window"
 msgstr "Ablak"
 

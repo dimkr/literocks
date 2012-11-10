@@ -2090,7 +2090,7 @@ msgstr "Novo"
 msgid "Blank file"
 msgstr "Ficheiro em branco"
 
-#: menu.c:235 tasklist.c:308
+#: menu.c:235
 msgid "Window"
 msgstr "Janela"
 

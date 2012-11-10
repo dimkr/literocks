@@ -50,7 +50,6 @@
 #include "appinfo.h"
 #include "menu.h"
 #include "xml.h"
-#include "tasklist.h"
 #include "panel.h"		/* For panel_mark_used() */
 #include "wrapped.h"
 #include "dropbox.h"
@@ -139,10 +138,9 @@ static int lasso_rect_y1, lasso_rect_y2;
 /* Tracking icon positions */
 static GHashTable *placed_icons=NULL;
 
-Option o_pinboard_tasklist_per_workspace;
 static Option o_pinboard_clamp_icons, o_pinboard_grid_step;
 static Option o_pinboard_fg_colour, o_pinboard_bg_colour;
-static Option o_pinboard_tasklist, o_forward_buttons_13;
+static Option o_forward_buttons_13;
 static Option o_iconify_start, o_iconify_dir;
 static Option o_label_font, o_pinboard_shadow_colour;
 static Option o_pinboard_shadow_labels;
@@ -248,8 +246,6 @@ void pinboard_init(void)
 	option_add_int(&o_pinboard_clamp_icons, "pinboard_clamp_icons", 1);
 	option_add_int(&o_pinboard_grid_step, "pinboard_grid_step",
 							GRID_STEP_COARSE);
-	option_add_int(&o_pinboard_tasklist, "pinboard_tasklist", TRUE);
-	option_add_int(&o_pinboard_tasklist_per_workspace, "pinboard_tasklist_per_workspace", FALSE);
 	option_add_int(&o_forward_buttons_13, "pinboard_forward_buttons_13",
 			FALSE);
 
@@ -363,9 +359,6 @@ void pinboard_activate(const gchar *name)
 				4 + ICON_HEIGHT / 2,
 				NULL);
 	loading_pinboard--;
-
-	if (o_pinboard_tasklist.int_value)
-		tasklist_set_active(TRUE);
 }
 
 /* Return the window of the current pinboard, or NULL.
@@ -807,7 +800,6 @@ static void pinboard_set_backdrop_box(void)
 	gtk_widget_show_all(dialog);
 }
 
-/* Also used by tasklist.c */
 void draw_label_shadow(WrappedLabel *wl, GdkRegion *region)
 {
 	GtkWidget	*widget;
@@ -973,8 +965,6 @@ static void pinboard_check_options(void)
 		g_idle_add((GtkFunction) recreate_pinboard, name);
 	}
 
-	tasklist_set_active(o_pinboard_tasklist.int_value && current_pinboard);
-
 	if (gdk_color_equal(&n_fg, &pin_text_fg_col) == 0 ||
 		gdk_color_equal(&n_bg, &pin_text_bg_col) == 0 ||
 		gdk_color_equal(&n_shadow, &pin_text_shadow_col) == 0 ||
@@ -1006,8 +996,6 @@ static void pinboard_check_options(void)
 			
 			reshape_all();
 		}
-
-		tasklist_style_changed();
 	}
 }
 
@@ -2065,8 +2053,6 @@ static void pinboard_clear(void)
 	GList	*next;
 
 	g_return_if_fail(current_pinboard != NULL);
-
-	tasklist_set_active(FALSE);
 
 	next = current_pinboard->icons;
 	while (next)

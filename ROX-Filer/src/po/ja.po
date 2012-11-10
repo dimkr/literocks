@@ -2319,7 +2319,7 @@ msgstr "新規作成"
 msgid "Blank file"
 msgstr "空のファイル"
 
-#: menu.c:240 tasklist.c:305
+#: menu.c:240
 msgid "Window"
 msgstr "ウィンドウ"
 

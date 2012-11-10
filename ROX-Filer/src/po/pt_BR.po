@@ -2263,7 +2263,6 @@ msgid "Blank file"
 msgstr "Arquivo vazio"
 
 #: menu.c:240
-#: tasklist.c:309
 msgid "Window"
 msgstr "Janela"
 

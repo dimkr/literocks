@@ -2151,7 +2151,7 @@ msgstr "Neu"
 msgid "Blank file"
 msgstr "Leere Datei"
 
-#: menu.c:235 tasklist.c:308
+#: menu.c:235
 msgid "Window"
 msgstr "Fenster"
 

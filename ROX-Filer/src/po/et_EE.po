@@ -2141,7 +2141,6 @@ msgid "Blank file"
 msgstr "Tühi fail"
 
 #: menu.c:233
-#: tasklist.c:308
 msgid "Window"
 msgstr "Aken"
 

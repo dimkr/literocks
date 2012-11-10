@@ -2229,7 +2229,7 @@ msgstr "Новый"
 msgid "Blank file"
 msgstr "Пустой файл"
 
-#: menu.c:240 tasklist.c:306
+#: menu.c:240
 msgid "Window"
 msgstr "Окно"
 
