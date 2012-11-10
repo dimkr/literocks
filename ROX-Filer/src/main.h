@@ -28,7 +28,6 @@ extern uid_t euid;
 extern gid_t egid;
 extern int ngroups;			/* Number of supplemental groups */
 extern gid_t *supplemental_groups;
-extern const gchar *show_user_message;
 extern int home_dir_len;
 extern const char *home_dir, *app_dir;
 extern Option o_dnd_no_hostnames;

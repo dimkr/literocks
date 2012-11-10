@@ -1750,17 +1750,6 @@ static void filer_add_widgets(FilerWindow *filer_window, const gchar *wm_class)
 	
 	filer_window->toplevel_vbox = GTK_BOX(vbox);
 
-	/* If there's a message that should be displayed in each window (eg
-	 * 'Running as root'), add it here.
-	 */
-	if (show_user_message)
-	{
-		filer_window->message = gtk_label_new(show_user_message);
-		gtk_box_pack_start(GTK_BOX(vbox), filer_window->message,
-				   FALSE, TRUE, 0);
-		gtk_widget_show(filer_window->message);
-	}
-
 	hbox = gtk_hbox_new(FALSE, 0);
 	filer_window->view_hbox = GTK_BOX(hbox);
 	gtk_box_pack_start_defaults(GTK_BOX(vbox), hbox);

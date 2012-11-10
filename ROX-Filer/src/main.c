@@ -85,9 +85,6 @@ gid_t egid;
 int ngroups;			/* Number of supplemental groups */
 gid_t *supplemental_groups = NULL;
 
-/* Message to display at the top of each filer window */
-const gchar *show_user_message = NULL;
-
 int home_dir_len;
 const char *home_dir, *app_dir;
 
@@ -258,7 +255,6 @@ int main(int argc, char **argv)
 	struct sigaction act;
 	guchar		*tmp, *dir;
 	gchar *client_id = NULL;
-	gboolean	show_user = FALSE;
 	gboolean	rpc_mode = FALSE;
 	xmlDocPtr	rpc, soap_rpc = NULL, reply;
 	xmlNodePtr	body;
@@ -468,9 +464,6 @@ int main(int argc, char **argv)
 				soap_add(body, "Pinboard",
 						"Name", VALUE, NULL, NULL);
 				break;
-			case 'u':
-				show_user = TRUE;
-				break;
 		        case 'm':
 			{
 				MIME_type *type;
@@ -526,10 +519,6 @@ int main(int argc, char **argv)
 
 	tooltips = gtk_tooltips_new();
 
-	if (euid == 0 || show_user)
-		show_user_message = g_strdup_printf(_("Running as user '%s'"), 
-						    user_name(euid));
-	
 	/* Add each remaining (non-option) argument to the list of files
 	 * to run.
 	 */
