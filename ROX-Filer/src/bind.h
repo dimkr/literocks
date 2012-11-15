@@ -27,7 +27,7 @@ typedef enum {
 	ACT_EDIT_ITEM,		/* Open app, load text file or mount dir */
 	ACT_POPUP_MENU,		/* Show the popup menu */
 	ACT_CLEAR_SELECTION,	/* Unselect all icons in this area */
-	ACT_MOVE_ICON,		/* Reposition a pinboard/panel icon */
+	ACT_MOVE_ICON,		/* Reposition a pinboard icon */
 	ACT_PRIME_FOR_DND,	/* Significant motion will start dnd */
 	ACT_PRIME_AND_SELECT,	/* As above, but select the item too */
 	ACT_PRIME_AND_TOGGLE,	/* As above, but toggle the item instead */

@@ -50,7 +50,6 @@
 #include "appinfo.h"
 #include "menu.h"
 #include "xml.h"
-#include "panel.h"		/* For panel_mark_used() */
 #include "wrapped.h"
 #include "dropbox.h"
 
@@ -362,7 +361,6 @@ void pinboard_activate(const gchar *name)
 }
 
 /* Return the window of the current pinboard, or NULL.
- * Used to make sure lowering the panels doesn't lose them...
  */
 GdkWindow *pinboard_get_window(void)
 {
@@ -2223,7 +2221,6 @@ static void pin_icon_set_tip(PinIcon *pi)
 static void pinboard_show_menu(GdkEventButton *event, PinIcon *pi)
 {
 	GtkWidget	*option_item;
-	GtkWidget	*new_panel_item;
 	int		pos[3];
 	GList		*list;
 
@@ -2233,11 +2230,6 @@ static void pinboard_show_menu(GdkEventButton *event, PinIcon *pi)
 	option_item = gtk_image_menu_item_new_with_label(_("Backdrop..."));
 	g_signal_connect(option_item, "activate",
 			 G_CALLBACK(pinboard_set_backdrop_box), NULL);
-	new_panel_item = gtk_image_menu_item_new_with_label(_("Add Panel"));
-	add_stock_to_menu_item(new_panel_item, GTK_STOCK_ADD);
-	gtk_menu_item_set_submenu(GTK_MENU_ITEM(new_panel_item),
-			panel_new_panel_submenu());
-	icon_prepare_menu((Icon *) pi, option_item, new_panel_item, NULL);
 
 	list = gtk_container_get_children(GTK_CONTAINER(icon_menu));
 	pos[2] = g_list_length(list) - 6;
@@ -2700,8 +2692,6 @@ static void find_free_rect(Pinboard *pinboard, GdkRectangle *rect,
 	int dx = SEARCH_STEP, dy = SEARCH_STEP;
 	
 	used = gdk_region_new();
-
-	panel_mark_used(used);
 
 	/* Subtract the no-go areas... */
 

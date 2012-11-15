@@ -17,7 +17,7 @@
  * Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-/* icon.c - abstract base class for pinboard and panel icons.
+/* icon.c - abstract base class for pinboard icons.
  *
  * An Icon contains the full pathname of its file and the DirItem for that
  * file. Icons emit the following signals:
@@ -62,10 +62,7 @@ static GtkWidget	*icon_file_menu;	/* The file submenu */
 static GtkWidget	*icon_file_item;	/* 'File' label */
 static GtkWidget	*file_shift_item;	/* 'Shift Open' label */
 
-/* A list of selected Icons. Every icon in the list is from the same group
- * (eg, you can't have icons from two different panels selected at the
- * same time).
- */
+/* A list of selected Icons. Every icon in the list is from the same group. */
 GList *icon_selection = NULL;
 
 /* A list of Icons which have grabs in effect. The same combo may be
@@ -243,7 +240,6 @@ static gboolean any_selected_item_is_locked()
 /* Menu was clicked over this icon. Set things up correctly (shade items,
  * add app menu stuff, etc).
  * You should show icon_menu after calling this...
- * panel_name is NULL for the pinboard.
  */
 void icon_prepare_menu(Icon *icon, GtkWidget *options_item, ...)
 {

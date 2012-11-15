@@ -62,7 +62,6 @@
 #include "view_iface.h"
 #include "display.h"
 #include "bookmarks.h"
-#include "panel.h"
 #include "bulk_rename.h"
 #include "xtypes.h"
 #include "log.h"

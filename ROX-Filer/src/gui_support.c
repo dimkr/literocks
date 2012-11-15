@@ -380,7 +380,7 @@ void make_panel_window(GtkWidget *widget)
 	gdk_window_set_functions(window, 0);
 	gtk_window_set_resizable(GTK_WINDOW(widget), FALSE);
 
-	/* Don't hide panel/pinboard windows initially (WIN_STATE_HIDDEN).
+	/* Don't hide pinboard windows initially (WIN_STATE_HIDDEN).
 	 * Needed for IceWM - Christopher Arndt <chris.arndt@web.de>
 	 */
 	set_cardinal_property(window, xa_state,

@@ -69,7 +69,6 @@
 #include "run.h"
 #include "toolbar.h"
 #include "bind.h"
-#include "panel.h"
 #include "session.h"
 #include "minibuffer.h"
 #include "xtypes.h"
@@ -114,21 +113,16 @@ GtkTooltips *tooltips = NULL;
 #define HELP N_("Usage: ROX-Filer/AppRun [OPTION]... [FILE]...\n"	\
        "Open each directory or file listed, or the current working\n"	\
        "directory if no arguments are given.\n\n"			\
-       "  -b, --border=PANEL	open PANEL as a border panel\n"	\
-       "  -B, --bottom=PANEL	open PAN as a bottom-edge panel\n"	\
        "  -c, --client-id=ID	used for session management\n"		\
        "  -d, --dir=DIR		open DIR as directory (not application)\n"  \
        "  -D, --close=DIR	close DIR and its subdirectories\n"     \
        "  -h, --help		display this help and exit\n"		\
-       "  -l, --left=PANEL	open PAN as a left-edge panel\n"	\
        "  -m, --mime-type=FILE	print MIME type of FILE and exit\n" \
        "  -n, --new		start new copy; for debugging the filer\n"  \
        "  -p, --pinboard=PIN	use pinboard PIN as the pinboard\n"	\
-       "  -r, --right=PANEL	open PAN as a right-edge panel\n"	\
        "  -R, --RPC		invoke method call read from stdin\n"	\
        "  -s, --show=FILE	open a directory showing FILE\n"	\
-       "  -S, --rox-session	use default panel and pinboard options, and -n\n"\
-       "  -t, --top=PANEL	open PANEL as a top-edge panel\n"	\
+       "  -S, --rox-session	use default pinboard options, and -n\n"\
        "  -u, --user		show user name in each window \n"	\
        "  -U, --url=URL		open file or directory in URI form\n"   \
        "  -v, --version		display the version information and exit\n"   \
@@ -142,13 +136,9 @@ GtkTooltips *tooltips = NULL;
 static struct option long_opts[] =
 {
 	{"dir", 1, NULL, 'd'},
-	{"top", 1, NULL, 't'},
-	{"bottom", 1, NULL, 'B'},
 	{"border", 1, NULL, 'b'},
-	{"left", 1, NULL, 'l'},
 	{"override", 0, NULL, 'o'},
 	{"pinboard", 1, NULL, 'p'},
-	{"right", 1, NULL, 'r'},
 	{"help", 0, NULL, 'h'},
 	{"version", 0, NULL, 'v'},
 	{"user", 0, NULL, 'u'},
@@ -174,7 +164,6 @@ enum {
 	SESSION_PINBOARD_ONLY,
 	SESSION_BOTH,
 };
-Option o_session_panel_or_pin;
 Option o_session_pinboard_name;
 
 /* Always start a new filer, even if one seems to be already running */
@@ -197,7 +186,7 @@ static void child_died(int signum);
 static void child_died_callback(void);
 static void wake_up_cb(gpointer data, gint source, GdkInputCondition condition);
 static void xrandr_size_change(GdkScreen *screen, gpointer user_data);
-static void add_default_panel_and_pinboard(xmlNodePtr body);
+static void add_default_pinboard(xmlNodePtr body);
 static GList *build_launch(Option *option, xmlNode *node, guchar *label);
 static GList *build_make_script(Option *option, xmlNode *node, guchar *label);
 
@@ -332,8 +321,6 @@ int main(int argc, char **argv)
 
 	option_add_int(&o_override_redirect, "override_redirect", FALSE);
 
-	option_add_int(&o_session_panel_or_pin, "session_panel_or_pin",
-		       SESSION_BOTH);
 	option_add_string(&o_session_pinboard_name, "session_pinboard_name",
 			  "Default");
 	option_register_widget("launch", build_launch);
@@ -438,28 +425,6 @@ int main(int argc, char **argv)
 				g_free(tmp);
 				g_free(dir);
 				break;
-			case 'l':
-			case 'r':
-			case 't':
-			case 'B':
-				/* Argument is a leaf (or starts with /) */
-				soap_add(body, "Panel", "Name", VALUE,
-					 "Side", c == 'l' ? "Left" :
-						 c == 'r' ? "Right" :
-						 c == 't' ? "Top" :
-						 c == 'B' ? "Bottom" :
-						 "Unkown");
-				break;
-			case 'b':
-				/* Argument is a leaf (or starts with /) */
-				if (*VALUE)
-					soap_add(body, "Panel", "Name", VALUE,
-							NULL, NULL);
-				else
-					soap_add(body, "Panel",
-							"Side", "Bottom",
-							NULL, NULL);
-				break;
 			case 'p':
 				soap_add(body, "Pinboard",
 						"Name", VALUE, NULL, NULL);
@@ -502,7 +467,7 @@ int main(int argc, char **argv)
 
 			case 'S':
 				new_copy = TRUE;
-				add_default_panel_and_pinboard(body);
+				add_default_pinboard(body);
 				session_auto_respawn = TRUE;
 				break;
 
@@ -594,7 +559,6 @@ int main(int argc, char **argv)
 	action_init();
 
 	pinboard_init();
-	panel_init();
 
 	/* Let everyone update */
 	options_notify();
@@ -824,57 +788,17 @@ static void xrandr_size_change(GdkScreen *screen, gpointer user_data)
 {
 	gui_store_screen_geometry(screen);
 
-	panel_update_size();
 	pinboard_update_size();
 }
 
-static void add_default_panel_and_pinboard(xmlNodePtr body)
+static void add_default_pinboard(xmlNodePtr body)
 {
 	const char *name;
 
-	if (o_session_panel_or_pin.int_value != SESSION_PANEL_ONLY)
-	{
-		name=o_session_pinboard_name.value;
-		if (!name[0])
-			name="Default";
-		soap_add(body, "Pinboard","Name", name, NULL, NULL);
-	}
-					
-	if (o_session_panel_or_pin.int_value != SESSION_PINBOARD_ONLY)
-	{
-		gboolean use_old_option = TRUE;
-		GIOChannel *fp = NULL;
-		GError *err = NULL;
-		char *line = NULL;
-		gsize term;
-		char *filename = choices_find_xdg_path_load("panels",
-				"ROX-Filer", "rox.sourceforge.net");
-
-		if (filename)
-			fp = g_io_channel_new_file(filename, "r", &err);
-		while (fp && g_io_channel_read_line(fp, &line, NULL, &term, &err) ==
-				G_IO_STATUS_NORMAL)
-		{
-			if (line && (line[term] = 0, line[0]))
-			{
-				soap_add(body, "Panel", "Name", line, NULL, NULL);
-				use_old_option = FALSE;
-			}
-		}
-		if (err)
-		{
-			g_critical(_("Unable to read '%s': %s"),
-					filename, err->message);
-			g_error_free(err);
-		}
-		if (fp)
-			g_io_channel_shutdown(fp, FALSE, NULL);
-		if (use_old_option)
-		{
-			soap_add(body, "Panel", "Name", "Default", NULL, NULL);
-		}
-		g_free(filename);
-	}
+	name=o_session_pinboard_name.value;
+	if (!name[0])
+		name="Default";
+	soap_add(body, "Pinboard","Name", name, NULL, NULL);
 }
 
 static GtkWidget *launch_button_new(const char *label, const char *uri,

@@ -2406,7 +2406,7 @@ void action_init(void)
 #define MAX_ASK 4
 
 /* Check to see if any of the selected items (or their children) are
- * on the pinboard or panel. If so, ask for confirmation.
+ * on the pinboard. If so, ask for confirmation.
  *
  * TRUE if it's OK to lose them.
  */
@@ -2469,14 +2469,14 @@ static gboolean remove_pinned_ok(GList *paths)
 	if (ask_n == 1)
 		message = g_string_append(message,
 				_(" will affect some items on the pinboard "
-				  "or panel - really delete it?"));
+				  "- really delete it?"));
 	else
 	{
 		if (ask_n > MAX_ASK)
 			message = g_string_append_c(message, ',');
 		message = g_string_append(message,
 				_(" will affect some items on the pinboard "
-					"or panel - really delete them?"));
+					"- really delete them?"));
 	}
 	
 	retval = confirm(message->str, GTK_STOCK_DELETE, NULL);

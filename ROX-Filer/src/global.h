@@ -29,7 +29,7 @@ typedef struct _Directory Directory;
 /* Each item in a directory has a DirItem. This contains information from
  * stat()ing the file, plus a few other bits. There may be several of these
  * for a single file, if it appears (hard-linked) in several directories.
- * Each pinboard and panel icon also has one of these (not shared).
+ * Each pinboard icon also has one of these (not shared).
  */
 typedef struct _DirItem DirItem;
 
@@ -57,7 +57,7 @@ typedef struct _MaskedPixmap MaskedPixmap;
  */
 typedef struct _MIME_type MIME_type;
 
-/* Icon is an abstract base class for pinboard and panel icons.
+/* Icon is an abstract base class for pinboard icons.
  * It contains the name and path of the icon, as well as its DirItem.
  */
 typedef struct _Icon Icon;

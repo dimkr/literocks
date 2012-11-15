@@ -184,38 +184,10 @@
   </sect1>
 
   <sect1>
-   <title><anchor id="run_pan" xreflabel="Panel support"/>Panels</title>
-   <para>
-
-    Panels work just like the pinboard, except that they run along the edge of the screen.
-    To create a panel:
-
-    <screen>$ rox -b=MyPanel</screen>
-
-    The panel should be displayed in a window without a title bar. If
-    this does not work then see the <xref linkend="winman"/> for some ideas.
-    You can drag files onto either side of the panel to add them. Panel icons
-    can be repositioned by dragging them with the middle mouse button.
-    Changes to the panel are automatically saved to
-    <filename>~/.config/rox.sourceforge.net/ROX-Filer/pan_MyPanel</filename>.
-    As with the pinboard, you can switch between panel configurations
-    simply by running rox again with a different panel name.
-
-    <screen>$ rox -b=MyOtherPanel</screen>
-
-    You can set which edge of the screen the panel appears on using the popup menu.
-    You can also set the edge when enabling the panel by using the side instead of -b.
-    Specify a blank name to remove the panel:
-
-    <screen>$ rox --bottom=</screen>
-   </para>
-  </sect1>
-
-  <sect1>
    <title><anchor id="winman" xreflabel="window manager notes"/>Window manager notes</title>
    <para>
     You may have to play around with your window manager a bit to get
-    the pinboard icons and panels to display correctly (eg, without borders
+    the pinboard icons to display correctly (eg, without borders
     and underneath all other windows). In particular, try setting the
     stacking level / depth to low (or a negative value). Make sure any
     'Keep transients above other windows' type options are turned off!
@@ -251,13 +223,8 @@
      Paste these into <filename>~/.icewm/winoptions</filename>:
 
      <programlisting>
-      # ROX-Filer pinboard and panel
+      # ROX-Filer pinboard
       ROX-Filer.icon: folder
-      ROX-Panel.layer: Dock
-      ROX-Panel.doNotCover: 1
-      ROX-Panel.ignoreWinList: 1
-      ROX-Panel.ignoreTaskBar: 1
-      ROX-Panel.ignoreQuickSwitch: 1
       ROX-Pinboard.layer: Below
       ROX-Pinboard.ignoreWinList: 1
       ROX-Pinboard.ignoreTaskBar: 1
@@ -655,7 +622,7 @@
  <chapter id="menus">
   <title>The menus</title>
   <para>
-   By default, you can open a menu by right clicking over a pinboard, panel or
+   By default, you can open a menu by right clicking over a pinboard or
    filer window.
 
    In filer windows, you may also press <keycap>\</keycap> to open the menu. As
@@ -1264,25 +1231,20 @@
  </chapter>
 
  <chapter id="icons">
-  <title>The pinboard and panels</title>
+  <title>The pinboard</title>
   <para>
 
    The <xref linkend="run_pin"/> and <xref linkend="run_pan"/> sections explain
-   how to turn the pinboard and panels on. Once on, you may drop items from filer
+   how to turn the pinboard on. Once on, you may drop items from filer
    windows onto the them to pin them up. Clicking on a pinned item acts just like
    clicking on it in a filer window. You can drag pinned icons just like normal
    icons and you can right-click on one to see the popup menu.
    </para><para>
-   Drag panel icons with the middle mouse button to move them around.
-   In previous versions of the filer, pinboard icons were also moved using the
-   middle mouse button, but this is no longer supported (as the middle button
-   is reserved for the window manager's use).
-   </para><para>
-   You can assign keyboard shortcuts to pinboard and panel icons. These can be
+   You can assign keyboard shortcuts to pinboard icons. These can be
    used to open directories, files or applications quickly, even if another
    window has the focus.
    </para><para>
-   Changes to the pinboard and panel are automatically saved. Clicking on pinned
+   Changes to the pinboard are automatically saved. Clicking on pinned
    icons with <keycap>Control</keycap> held down selects and unselects them.
    Click on the background to unselect them all.
   </para>
@@ -1290,12 +1252,12 @@
   <important><para>
     Pinning a file does <emphasis>not</emphasis> copy it, it merely
     creates a shortcut to the original file. If you delete the file, then
-    you've lost it! Removing a pinned file from its pinboard or panel
+    you've lost it! Removing a pinned file from its pinboard 
     only removes the link. This is different to most other filers...
   </para></important>
 
   <sect1>
-   <title>The pinboard and panel menus</title>
+   <title>The pinboard menu</title>
    <para>
 
     <informaltable><tgroup cols="2">
@@ -1327,19 +1289,13 @@
 
        <row><entry>
          <guimenuitem>Remove Item(s)</guimenuitem></entry><entry>
-         Remove the selected items from the pinboard or panel.
+         Remove the selected items from the pinboard.
        </entry></row>
 
        <row><entry>
          <guimenuitem>Backdrop...</guimenuitem></entry><entry>
 	 Set the desktop backdrop image (see below). Only available from
 	 the pinboard menu.
-       </entry></row>
-
-       <row><entry>
-         <guimenuitem>Panel Options...</guimenuitem></entry><entry>
-	 Set the edge of the screen on which the panel is displayed. Only available from
-	 the panel menu.
        </entry></row>
 
     </tbody></tgroup></informaltable>
@@ -1355,45 +1311,6 @@
     top of this menu when you click over them &mdash; see <xref linkend="AppDir"/>
     for details.
    </para>
-  </sect1>
-
-  <sect1>
-   <title>Panel applets</title>
-   <para>
-
-    <application>ROX-Filer</application> allows you to run small programs
-    inside the panel &mdash; such programs are called
-    <emphasis>applets</emphasis>. To run an applet, drag it onto the panel from
-    a filer window and instead of the applet's icon being shown, the applet
-    will run.
-   </para>
-
-   <procedure><title>To create your own applets (programmers only!):</title>
-
-    <step><para>
-      Create a directory for the applet (eg <filename>MyApplet</filename>).
-    </para></step>
-
-    <step><para>
-      Use the <guimenuitem>Set Icon...</guimenuitem> feature to create an icon
-      called <filename>.DirIcon</filename> inside it (so the directory appears
-      with an icon).
-    </para></step>
-
-    <step><para>
-      Make a <filename>Help</filename> directory inside it for when the user
-      chooses <guimenuitem>Help</guimenuitem> from the menu.
-    </para></step>
-
-    <step><para>
-      Create an executable file called <filename>AppletRun</filename>. This will be
-      passed the XID of the panel socket window when the directory is dragged
-      onto the panel. You can use this to create a GtkPlug widget. A
-      tutorial is available at
-      <ulink url="http://rox.sourceforge.net/phpwiki/index.php/Tutorials/Applets"/>
-    </para></step>
-
-   </procedure>
   </sect1>
 
   <sect1>
@@ -2388,7 +2305,7 @@ generated.
 
    <sect2><title>Setting the run action by drag-and-drop</title>
     <para>
-     Drag the Gimp (from a filer window, a panel or the pinboard) onto
+     Drag the Gimp (from a filer window or the pinboard) onto
      the area marked <guilabel>Drop a suitable application here</guilabel>.
      From now on, clicking on a GIF file will load it into the Gimp.
     </para>
@@ -3019,14 +2936,6 @@ generated.
     <para>
      <variablelist>
 
-      <varlistentry><term><option>-b</option></term><term><option>--border=PANEL</option></term>
-       <listitem><para>open PANEL.
-      </para></listitem></varlistentry>
-
-      <varlistentry><term><option>-B</option></term><term><option>--bottom=PANEL</option></term>
-       <listitem><para>open PANEL as a bottom-edge panel.
-      </para></listitem></varlistentry>
-
       <varlistentry><term><option>-c</option></term><term><option>--client-id=ID</option></term>
        <listitem><para>used for session management.
       </para></listitem></varlistentry>
@@ -3043,10 +2952,6 @@ generated.
        <listitem><para>display help about the various options.
       </para></listitem></varlistentry>
 
-      <varlistentry><term><option>-l</option></term><term><option>--left=PANEL</option></term>
-       <listitem><para>open PANEL as a left-edge panel.
-      </para></listitem></varlistentry>
-
       <varlistentry><term><option>-m</option></term><term><option>--mime-type=FILE</option></term>
        <listitem><para>print MIME type of FILE and exit.
       </para></listitem></varlistentry>
@@ -3061,10 +2966,6 @@ generated.
        <listitem><para>use pinboard PIN as the pinboard.
       </para></listitem></varlistentry>
 
-      <varlistentry><term><option>-r</option></term><term><option>--right=PANEL</option></term>
-       <listitem><para>open PANEL as a right-edge panel.
-      </para></listitem></varlistentry>
-
       <varlistentry><term><option>-R</option></term><term><option>--RPC</option></term>
        <listitem><para>read and invoke SOAP RPC from standard input (see <xref linkend="soap"/>).
       </para></listitem></varlistentry>
@@ -3074,13 +2975,9 @@ generated.
       </para></listitem></varlistentry>
 
       <varlistentry><term><option>-S</option></term><term><option>--rox-session</option></term>
-       <listitem><para>run by session manager, open the default panel and pinboard (implies --new).
+       <listitem><para>run by session manager, open the default pinboard (implies --new).
 If an XSM session manager is running and this option is used then ROX-Filer will ask to be automatically
 restarted if it crashes.
-      </para></listitem></varlistentry>
-
-      <varlistentry><term><option>-t</option></term><term><option>--top=PANEL</option></term>
-       <listitem><para>open PANEL as a top-edge panel.
       </para></listitem></varlistentry>
 
       <varlistentry><term><option>-u</option></term><term><option>--user</option></term>
@@ -3224,10 +3121,6 @@ $ rox --RPC &lt;&lt; EOF
 &lt;?xml version="1.0"?&gt;
 &lt;env:Envelope xmlns:env="http://www.w3.org/2001/12/soap-envelope"&gt;
  &lt;env:Body xmlns="http://rox.sourceforge.net/SOAP/ROX-Filer"&gt;
-  &lt;Panel&gt;
-   &lt;Name&gt;Default&lt;/Name&gt;
-   &lt;Side&gt;Bottom&lt;/Side&gt;
-  &lt;/Panel&gt;
  &lt;/env:Body&gt;
 &lt;/env:Envelope&gt;
 EOF</screen>
@@ -3275,35 +3168,6 @@ configured setting is used.
 <parameter>Filter</parameter> can be used to filter files shown by
 their name.  For example using a filter of <userinput>*.c</userinput>
 means that only files ending in .c are shown.
-   </para></listitem>
-
-   <listitem><para><function>Panel</function>([<parameter>Side</parameter>,
-     <parameter>Name</parameter>])
-     Open the panel named <parameter>Name</parameter> on screen side
-     <parameter>Side</parameter> (<userinput>Top</userinput>|<userinput>Bottom</userinput>|<userinput>Left</userinput>|<userinput>Right</userinput>).
-     <parameter>Name</parameter> can be a name in <filename>~/.config/rox.sourceforge.net/ROX-Filer</filename>
-     (eg, <userinput>MyPanel</userinput>) or a full pathname.
-     If not given, the panel on that side is turned off.
-   </para></listitem>
-
-   <listitem><para><function>PanelAdd</function>(<parameter>Side</parameter>,
-     <parameter>Path</parameter>, [<parameter>Label</parameter>,
-     <parameter>After</parameter>, <parameter>Shortcut</parameter>, <parameter>Args</parameter>])
-     Add <parameter>Path</parameter> to the panel on side <parameter>Side</parameter>,
-     with label <parameter>Label</parameter>. If <parameter>After</parameter> is
-     <userinput>true</userinput> the icon goes on the right/bottom side of the panel,
-     otherwise on the left/top side.  If <parameter>Shortcut</parameter>
-is given it is the keyboard shortcut to trigger this item.  If
-<parameter>Args</parameter> is given it is the argument string to
-append to the item when run if it is a program.
-   </para></listitem>
-
-   <listitem><para><function>PanelRemove</function>(<parameter>Side</parameter>,
-     [<parameter>Path</parameter>, <parameter>Label</parameter>])
-     Remove an item from the panel on side <parameter>Side</parameter>. If
-     <parameter>Path</parameter> or <parameter>Label</parameter> is not given
-     then any path or label will match. At least one must be specified.
-     If more than one item matches, only one is removed.
    </para></listitem>
 
    <listitem><para><function>Pinboard</function>([<parameter>Name</parameter>])

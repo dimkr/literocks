@@ -43,7 +43,6 @@
 #include "remote.h"
 #include "filer.h"
 #include "pinboard.h"
-#include "panel.h"
 #include "action.h"
 #include "type.h"
 #include "display.h"
@@ -85,7 +84,6 @@ static xmlNodePtr rpc_CloseDir(GList *args);
 static xmlNodePtr rpc_Examine(GList *args);
 static xmlNodePtr rpc_Show(GList *args);
 static xmlNodePtr rpc_Pinboard(GList *args);
-static xmlNodePtr rpc_Panel(GList *args);
 static xmlNodePtr rpc_Run(GList *args);
 static xmlNodePtr rpc_RunURI(GList *args);
 static xmlNodePtr rpc_Copy(GList *args);
@@ -95,8 +93,6 @@ static xmlNodePtr rpc_FileType(GList *args);
 static xmlNodePtr rpc_Mount(GList *args);
 static xmlNodePtr rpc_Unmount(GList *args);
 
-static xmlNodePtr rpc_PanelAdd(GList *args);
-static xmlNodePtr rpc_PanelRemove(GList *args);
 static xmlNodePtr rpc_PinboardAdd(GList *args);
 static xmlNodePtr rpc_PinboardRemove(GList *args);
 static xmlNodePtr rpc_SetBackdrop(GList *args);
@@ -136,7 +132,6 @@ gboolean remote_init(xmlDocPtr rpc, gboolean new_copy)
 	soap_register("RunURI", rpc_RunURI, "URI", NULL);
 
 	soap_register("Pinboard", rpc_Pinboard, NULL, "Name");
-	soap_register("Panel", rpc_Panel, NULL, "Side,Name");
 
 	soap_register("FileType", rpc_FileType, "Filename", NULL);
 
@@ -150,8 +145,6 @@ gboolean remote_init(xmlDocPtr rpc, gboolean new_copy)
 	soap_register("SetBackdropApp", rpc_SetBackdropApp, "App", NULL);
 	soap_register("PinboardAdd", rpc_PinboardAdd, "Path", "X,Y,Label,Shortcut,Args,Locked,Update");
 	soap_register("PinboardRemove", rpc_PinboardRemove, "Path", "Label");
-	soap_register("PanelAdd", rpc_PanelAdd, "Side,Path", "Label,After,Shortcut,Args,Locked");
-	soap_register("PanelRemove", rpc_PanelRemove, "Side", "Path,Label");
  	soap_register("SetIcon", rpc_SetIcon, "Path,Icon", NULL);
  	soap_register("UnsetIcon", rpc_UnsetIcon, "Path", NULL);
 
@@ -955,89 +948,6 @@ static xmlNodePtr rpc_PinboardRemove(GList *args)
 	g_free(path);
 	if(name)
 	        g_free(name);
-
-	return NULL;
-}
-
-/* args = Side, [Name] */
-static xmlNodePtr rpc_Panel(GList *args)
-{
-	PanelSide side;
-	char *name, *side_name;
-
-	side_name = string_value(ARG(0));
-	if (side_name)
-	{
-		side = panel_name_to_side(side_name);
-		g_free(side_name);
-		g_return_val_if_fail(side != PANEL_NUMBER_OF_SIDES, NULL);
-	}
-	else
-		side = PANEL_DEFAULT_SIDE;
-
-	name = string_value(ARG(1));
-
-	panel_new(name, side);
-
-	g_free(name);
-
-	return NULL;
-}
-
-/* args = Side, Path, [Label, After, Shortcut, Args, Locked] */
-static xmlNodePtr rpc_PanelAdd(GList *args)
-{
-	PanelSide side;
-	char *path, *side_name, *label, *shortcut, *arg;
-	gboolean after = FALSE;
-	gboolean locked = FALSE;
-	int tmp;
-
-	side_name = string_value(ARG(0));
-	side = panel_name_to_side(side_name);
-	g_free(side_name);
-	g_return_val_if_fail(side != PANEL_NUMBER_OF_SIDES, NULL);
-
-	path = string_value(ARG(1));
-	label = string_value(ARG(2));
-
-	tmp = bool_value(ARG(3));
-	after = (tmp == -1) ? FALSE : tmp;
-
-	shortcut = string_value(ARG(4));
-	arg = string_value(ARG(5));
-	locked = bool_value(ARG(6));
-
-	panel_add(side, path, label, after, shortcut, arg, (locked== -1) ? FALSE : locked);
-
-	g_free(path);
-	g_free(label);
-	g_free(shortcut);
-	g_free(arg);
-
-	return NULL;
-}
-
-static xmlNodePtr rpc_PanelRemove(GList *args)
-{
-	PanelSide side;
-	char *path, *side_name, *label;
-
-	side_name = string_value(ARG(0));
-	side = panel_name_to_side(side_name);
-	g_free(side_name);
-	g_return_val_if_fail(side != PANEL_NUMBER_OF_SIDES, NULL);
-
-	path = string_value(ARG(1));
-	label = string_value(ARG(2));
-
-	if (path || label)
-		panel_remove_item(side, path, label);
-	else
-		g_warning("Must specify either path or label");
-
-	g_free(path);
-	g_free(label);
 
 	return NULL;
 }
