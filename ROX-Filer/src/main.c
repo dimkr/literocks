@@ -581,9 +581,6 @@ int main(int argc, char **argv)
 	session_init(client_id);
 	g_free(client_id);
 
-	/* See if we need to migrate the Choices directories*/
-	choices_migrate();
-
 	/* Finally, execute the request */
 	reply = run_soap(rpc);
 	xmlFreeDoc(rpc);

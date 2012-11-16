@@ -1508,8 +1508,7 @@ static void customise_send_to(gpointer data)
 		save ? _("I'll show you your SendTo directory now; you should "
 			"symlink (Ctrl+Shift drag) any applications you want "
 			"into it.")
-		     : _("Your CHOICESPATH variable setting prevents "
-			 "customisations - sorry."));
+		     : _("Customisations cannot be saved."));
 
 	g_string_free(dirs, TRUE);
 	
@@ -1548,8 +1547,7 @@ static void customise_new(gpointer data)
 		dirs->str,
 		save ? _("I'll show you your Templates directory now; you "
 			 "should place any template files you want inside it.")
-		     : _("Your CHOICESPATH variable setting prevents "
-			 "customisations - sorry."));
+		     : _("Customisations cannot be saved."));
 
 	g_string_free(dirs, TRUE);
 	

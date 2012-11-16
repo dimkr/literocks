@@ -586,7 +586,7 @@ static gboolean set_icon_for_type(MIME_type *type, const gchar *iconpath,
 
 	if (!target)
 	{
-		delayed_error(_("Setting icon disabled by CHOICESPATH"));
+		delayed_error(_("Setting icon disabled"));
 		return FALSE;
 	}
 

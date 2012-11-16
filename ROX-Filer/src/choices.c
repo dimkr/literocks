@@ -61,52 +61,24 @@ static void migrate_choices(void);
  ****************************************************************/
 
 
-/* Reads in CHOICESPATH and constructs the directory list table.
+/* Constructs the directory list table.
  * You must call this before using any other choices_* functions.
- *
- * If CHOICESPATH does not exist then a suitable default is used.
  */
 void choices_init(void)
 {
-	char	*choices;
 	const char *env;
 	char **dirs;
 	int i, n;
 
 	g_return_if_fail(dir_list == NULL);
 
-	/* Initialize old system */
-	choices = getenv("CHOICESPATH");
-	
-	if (choices)
-	{
-		if (*choices != ':' && *choices != '\0')
-			saving_disabled = FALSE;
-
-		while (*choices == ':')
-			choices++;
-
-		if (*choices == '\0')
-		{
-			dir_list = g_new(char *, 1);
-			dir_list[0] = NULL;
-		}
-		else
-			dir_list = g_strsplit(choices, ":", 0);
-	}
-	else
-	{
-		saving_disabled = FALSE;
+	saving_disabled = FALSE;
+	dir_list = g_new(gchar *, 4);
+	dir_list[0] = g_build_filename(g_get_home_dir(), "Choices", NULL);
+	dir_list[1] = g_strdup("/usr/local/share/Choices");
+	dir_list[2] = g_strdup("/usr/share/Choices");
+	dir_list[3] = NULL;
 		
-		dir_list = g_new(gchar *, 4);
-		dir_list[0] = g_build_filename(g_get_home_dir(), "Choices",
-					       NULL);
-		dir_list[1] = g_strdup("/usr/local/share/Choices");
-		dir_list[2] = g_strdup("/usr/share/Choices");
-		dir_list[3] = NULL;
-	}
-
-	/* Initialize new system */
 	env = getenv("XDG_CONFIG_DIRS");
 	if (!env)
 		env = "/etc/xdg";
@@ -143,20 +115,6 @@ void choices_init(void)
 	}
 #endif
 
-}
-
-/* If our XDG choices directory does not yet exist, offer to move the
- * old config over
- */
-void choices_migrate(void)
-{
-	gchar *newpath;
-	
-	/* Attempt migration */
-	newpath=choices_find_xdg_path_save(".", PROJECT, SITE, FALSE);
-	if(!exists(newpath) && !saving_disabled)
-		migrate_choices();
-	g_free(newpath);
 }
 
 void choices_free_list(GPtrArray *list)
@@ -370,77 +328,4 @@ static gboolean exists(char *path)
 	struct stat info;
 
 	return stat(path, &info) == 0;
-}
-
-#include <unistd.h>
-#include <gtk/gtk.h>
-
-static void migrate_choices(void)
-{
-	gchar *opath, *npath;
-	int failed=0;
-	int i;
-	gchar *src, *dest;
-	gboolean migrated_something = FALSE;
-
-	npath=choices_find_xdg_path_save("...", PROJECT, SITE, FALSE);
-	opath=choices_find_path_save("...", PROJECT,FALSE);
-	
-	/*
-	dest=choices_find_xdg_path_save(".", PROJECT, SITE, TRUE);
-	g_free(dest);
-	*/
-
-	for(i=0; to_migrate[i].dir; i++) {
-		src=g_build_filename(dir_list[0], to_migrate[i].dir, NULL);
-		dest=choices_find_xdg_path_save(NULL, NULL,
-						to_migrate[i].site, TRUE);
-		g_free(dest);
-		dest=choices_find_xdg_path_save(NULL,
-						to_migrate[i].dir,
-						to_migrate[i].site,
-						FALSE);
-		errno=0;
-		if(exists(src)) {
-			if(rename(src, dest)==0) {
-				if(to_migrate[i].symlink)
-					symlink(dest, src);
-				migrated_something = TRUE;
-			} else {
-				g_warning("rename(%s, %s): %s\n",
-					  src, dest,
-					  g_strerror(errno));
-				failed++;
-			}
-		} else if(to_migrate[i].symlink) {
-			/*
-			if(!exists(dir_list[0])) {
-				if (mkdir(dir_list[0], 0777))
-					g_warning("mkdir(%s): %s\n",
-						  dir_list[0],
-						  g_strerror(errno));
-			}
-			symlink(dest, src);
-			*/
-		}
-		g_free(src);
-		g_free(dest);
-	}
-
-	if (migrated_something)
-	{
-		gchar *failed_msg = NULL;
-		if (failed)
-			failed_msg = g_strdup_printf(_("%d directories could not be migrated"),
-					     failed);
-		info_message(_("Choices have been moved from \n"
-			       "%s\n "
-			       "to the new location \n"
-			       "%s\n%s"),
-			     opath, npath, failed_msg ? failed_msg : "");
-		g_free(failed_msg);
-	}
-		
-	g_free(opath);
-	g_free(npath);
 }

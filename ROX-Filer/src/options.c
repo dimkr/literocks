@@ -985,7 +985,7 @@ static GtkWidget *build_window_frame(GtkTreeView **tree_view)
 	}
 	else
 		gtk_tooltips_set_tip(option_tooltips, button,
-				_("(saving disabled by CHOICESPATH)"), NULL);
+				_("(saving disabled)"), NULL);
 
 	if (tree_view)
 		*tree_view = GTK_TREE_VIEW(tv);

@@ -1004,7 +1004,7 @@ static char *get_action_save_path(GtkWidget *dialog)
 	if (!path)
 	{
 		report_error(
-		_("Choices saving is disabled by CHOICESPATH variable"));
+		_("Choices saving is disabled."));
 		goto out;
 	}
 	g_free(path);
