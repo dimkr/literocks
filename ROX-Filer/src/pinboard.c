@@ -139,11 +139,9 @@ static GHashTable *placed_icons=NULL;
 
 static Option o_pinboard_clamp_icons, o_pinboard_grid_step;
 static Option o_pinboard_fg_colour, o_pinboard_bg_colour;
-static Option o_forward_buttons_13;
 static Option o_iconify_start, o_iconify_dir;
 static Option o_label_font, o_pinboard_shadow_colour;
 static Option o_pinboard_shadow_labels;
-static Option o_blackbox_hack;
 
 static Option o_top_margin, o_bottom_margin, o_left_margin, o_right_margin;
 static Option o_pinboard_image_scaling;
@@ -245,13 +243,9 @@ void pinboard_init(void)
 	option_add_int(&o_pinboard_clamp_icons, "pinboard_clamp_icons", 1);
 	option_add_int(&o_pinboard_grid_step, "pinboard_grid_step",
 							GRID_STEP_COARSE);
-	option_add_int(&o_forward_buttons_13, "pinboard_forward_buttons_13",
-			FALSE);
 
 	option_add_int(&o_iconify_start, "iconify_start", CORNER_TOP_RIGHT);
 	option_add_int(&o_iconify_dir, "iconify_dir", DIR_VERT);
-
-	option_add_int(&o_blackbox_hack, "blackbox_hack", FALSE);
 
 	option_add_int(&o_top_margin, "pinboard_top_margin", 0);
 	option_add_int(&o_bottom_margin, "pinboard_bottom_margin", 0);
@@ -955,14 +949,6 @@ static void pinboard_check_options(void)
 	gdk_color_parse(o_pinboard_bg_colour.value, &n_bg);
 	gdk_color_parse(o_pinboard_shadow_colour.value, &n_shadow);
 
-	if (o_override_redirect.has_changed && current_pinboard)
-	{
-		gchar *name;
-		name = g_strdup(current_pinboard->name);
-		pinboard_activate(NULL);
-		g_idle_add((GtkFunction) recreate_pinboard, name);
-	}
-
 	if (gdk_color_equal(&n_fg, &pin_text_fg_col) == 0 ||
 		gdk_color_equal(&n_bg, &pin_text_bg_col) == 0 ||
 		gdk_color_equal(&n_shadow, &pin_text_shadow_col) == 0 ||
@@ -1348,11 +1334,6 @@ static void forward_to_root(GdkEventButton *event)
 	if (event->type == GDK_BUTTON_PRESS)
 	{
 		xev.type = ButtonPress;
-		if (!o_blackbox_hack.int_value)
-		{
-			gdk_display_pointer_ungrab(gdk_x11_lookup_xdisplay(gdk_display),
-						   event->time);
-		}
 	}
 	else
 		xev.type = ButtonRelease;
@@ -1374,7 +1355,7 @@ static void forward_to_root(GdkEventButton *event)
 }
 
 #define FORWARDED_BUTTON(pi, b) ((b) == 2 || \
-	(((b) == 3 || (b) == 1) && o_forward_buttons_13.int_value && !pi))
+	(((b) == 3 || (b) == 1) && !pi))
 
 /* pi is NULL if this is a root event */
 static gboolean button_release_event(GtkWidget *widget,

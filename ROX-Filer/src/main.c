@@ -137,7 +137,6 @@ static struct option long_opts[] =
 {
 	{"dir", 1, NULL, 'd'},
 	{"border", 1, NULL, 'b'},
-	{"override", 0, NULL, 'o'},
 	{"pinboard", 1, NULL, 'p'},
 	{"help", 0, NULL, 'h'},
 	{"version", 0, NULL, 'v'},
@@ -154,9 +153,6 @@ static struct option long_opts[] =
 	{NULL, 0, NULL, 0},
 };
 #endif
-
-/* Take control of panels away from WM? */
-Option o_override_redirect;
 
 /* Options used when we are called by ROX-Session */
 enum {
@@ -319,8 +315,6 @@ int main(int argc, char **argv)
 		return EXIT_SUCCESS;
 	}
 
-	option_add_int(&o_override_redirect, "override_redirect", FALSE);
-
 	option_add_string(&o_session_pinboard_name, "session_pinboard_name",
 			  "Default");
 	option_register_widget("launch", build_launch);
@@ -379,12 +373,6 @@ int main(int argc, char **argv)
 		{
 			case 'n':
 				new_copy = TRUE;
-				break;
-			case 'o':
-				info_message(_("The -o argument is no longer "
-					"used. You can turn on override "
-					"redirect from the Options box "
-					"instead."));
 				break;
 			case 'v':
 				g_print("ROX-Filer %s\n", VERSION);

@@ -21,7 +21,6 @@ struct _Callback
 };
 
 extern int number_of_windows;
-extern Option o_override_redirect;
 extern int to_wakeup_pipe;
 
 extern uid_t euid;

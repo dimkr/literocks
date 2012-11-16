@@ -360,12 +360,6 @@ void make_panel_window(GtkWidget *widget)
 
 	g_return_if_fail(window != NULL);
 
-	if (o_override_redirect.int_value)
-	{
-		gdk_window_set_override_redirect(window, TRUE);
-		return;
-	}
-
 	if (need_init)
 	{
 		xa_win_hints = gdk_atom_intern("_WIN_HINTS", FALSE);
@@ -759,25 +753,7 @@ void entry_set_error(GtkWidget *entry, gboolean error)
  */
 void window_put_just_above(GdkWindow *higher, GdkWindow *lower)
 {
-	if (o_override_redirect.int_value && lower)
-	{
-		XWindowChanges restack;
-
-		gdk_error_trap_push();
-		
-		restack.stack_mode = Above;
-
-		restack.sibling = GDK_WINDOW_XWINDOW(lower);
-
-		XConfigureWindow(gdk_display, GDK_WINDOW_XWINDOW(higher),
-				CWSibling | CWStackMode, &restack);
-
-		gdk_flush();
-		if (gdk_error_trap_pop())
-			g_warning("window_put_just_above()\n");
-	}
-	else
-		gdk_window_lower(higher);	/* To bottom of stack */
+	gdk_window_lower(higher);	/* To bottom of stack */
 }
 
 /* Copied from Gtk */
