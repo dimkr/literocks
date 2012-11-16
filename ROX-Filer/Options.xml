@@ -249,12 +249,6 @@ xterm -e wget $1</entry>
 
 	<launch uri="http://rox.sourceforge.net/2005/interfaces/MIME-Editor" label="Edit MIME rules" appname="MIME-Editor"/>
      </frame>
-     <frame label='Themes'>
-      <icon-theme-chooser label='Icon theme' name='icon_theme'/>
-      <spacer/>
-      <label help='1'>Themes should be placed inside the ~/.icons directory.</label>
-      <label help='1'>Use the 'Set Icon...' dialog box to set the icon for each MIME type. Note that icons set this way override those from the selected theme.</label>
-    </frame>
     <section title='Colours'>
       <frame label='File type colours'>
         <toggle name='display_colour_types' label='Colour files based on their types'>Filenames (and details) are coloured according to the file's type.</toggle>

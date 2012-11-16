@@ -115,11 +115,8 @@ MIME_type *inode_unknown;
 MIME_type *inode_door;
 
 static Option o_display_colour_types;
-static Option o_icon_theme;
 
 static GtkIconTheme *icon_theme = NULL;
-static GtkIconTheme *rox_theme = NULL;
-static GtkIconTheme *gnome_theme = NULL;
 
 void type_init(void)
 {
@@ -144,9 +141,7 @@ void type_init(void)
 	inode_unknown = get_mime_type("inode/unknown", TRUE);
 	inode_door = get_mime_type("inode/door", TRUE);
 
-	option_add_string(&o_icon_theme, "icon_theme", "ROX");
 	option_add_int(&o_display_colour_types, "display_colour_types", TRUE);
-	option_register_widget("icon-theme-chooser", build_icon_theme);
 	
 	for (i = 0; i < NUM_TYPE_COLOURS; i++)
 		option_add_string(&o_type_colours[i],
@@ -377,24 +372,6 @@ MIME_type *mime_type_lookup(const char *type)
 	return get_mime_type(type, TRUE);
 }
 
-static void init_aux_theme(GtkIconTheme **ptheme, const char *name)
-{
-	if (*ptheme)
-		return;
-	*ptheme = gtk_icon_theme_new();
-	gtk_icon_theme_set_custom_theme(*ptheme, name);
-}
-
-inline static void init_rox_theme(void)
-{
-	init_aux_theme(&rox_theme, "ROX");
-}
-
-inline static void init_gnome_theme(void)
-{
-	init_aux_theme(&gnome_theme, "gnome");
-}
-
 /* We don't want ROX to override configured theme so try all possibilities
  * in icon_theme first */
 static GtkIconInfo *mime_type_lookup_icon_info(GtkIconTheme *theme,
@@ -406,27 +383,8 @@ static GtkIconInfo *mime_type_lookup_icon_info(GtkIconTheme *theme,
 	g_free(type_name);
 	if (!full)
 	{
-		/* Ugly hack... try for a GNOME icon */
-		if (type == inode_directory)
-			type_name = g_strdup("gnome-fs-directory");
-		else
-			type_name = g_strconcat("gnome-mime-", type->media_type,
-					"-", type->subtype, NULL);
-		full = gtk_icon_theme_lookup_icon(theme, type_name, HUGE_HEIGHT, 0);
-		g_free(type_name);
-	}
-	if (!full)
-	{
 		/* Try for a media type */
 		type_name = g_strconcat(type->media_type, "-x-generic", NULL);
-		full = gtk_icon_theme_lookup_icon(theme, type_name, HUGE_HEIGHT, 0);
-		g_free(type_name);
-	}
-	if (!full)
-	{
-		/* Ugly hack... try for a GNOME default media icon */
-		type_name = g_strconcat("gnome-mime-", type->media_type, NULL);
-
 		full = gtk_icon_theme_lookup_icon(theme, type_name, HUGE_HEIGHT, 0);
 		g_free(type_name);
 	}
@@ -488,16 +446,7 @@ again:
 		goto out;
 
 	full = mime_type_lookup_icon_info(icon_theme, type);
-	if (!full && icon_theme != rox_theme)
-	{
-		init_rox_theme();
-		full = mime_type_lookup_icon_info(rox_theme, type);
-	}
-	if (!full && icon_theme != gnome_theme)
-	{
-		init_gnome_theme();
-		full = mime_type_lookup_icon_info(gnome_theme, type);
-	}
+	
 	if (!full && type == inode_mountpoint)
 	{
 		/* Try to use the inode/directory icon for inode/mount-point */
@@ -1126,12 +1075,6 @@ static void expire_timer(gpointer key, gpointer value, gpointer data)
 static void options_changed(void)
 {
 	alloc_type_colours();
-	if (o_icon_theme.has_changed)
-	{
-		set_icon_theme();
-		g_hash_table_foreach(type_hash, expire_timer, NULL);
-		full_refresh();
-	}
 }
 
 /* Return a pointer to a (static) colour for this item. If colouring is
@@ -1245,68 +1188,9 @@ const char *mime_type_comment(MIME_type *type)
 	return type->comment;
 }
 
-static void unref_icon_theme(void)
-{
-	if (icon_theme && icon_theme != rox_theme && icon_theme != gnome_theme)
-		g_object_unref(icon_theme);
-}
-
 static void set_icon_theme(void)
 {
-	struct stat info;
-	char *icon_home;
-	const char *theme_dir;
-	const char *theme_name = o_icon_theme.value;
-
-	if (!theme_name || !*theme_name)
-		theme_name = "ROX";
-
-	if (!strcmp(theme_name, "ROX"))
-	{
-		unref_icon_theme();
-		init_rox_theme();
-		icon_theme = rox_theme;
-	}
-	else if (!strcmp(theme_name, "gnome"))
-	{
-		unref_icon_theme();
-		init_gnome_theme();
-		icon_theme = gnome_theme;
-	}
-	else
-	{
-		if (icon_theme == rox_theme || icon_theme == gnome_theme)
-			icon_theme = gtk_icon_theme_new();
-		gtk_icon_theme_set_custom_theme(icon_theme, theme_name);
-	}
-
-	/* Ensure the ROX theme exists. */
-
-	icon_home = g_build_filename(home_dir, ".icons", "ROX", NULL);
-	if (stat(icon_home, &info) == 0)
-		return;	/* Already exists */
-
-	/* First, create the .icons directory */
-	theme_dir = make_path(home_dir, ".icons");
-	if (!file_exists(theme_dir))
-		mkdir(theme_dir, 0755);
-
-	if (lstat(icon_home, &info) == 0)
-	{
-		/* Probably a broken symlink, then. Remove it. */
-		if (unlink(icon_home))
-			g_warning("Error removing broken symlink %s: %s", icon_home, g_strerror(errno));
-		else
-			g_warning("Removed broken symlink %s", icon_home);
-	}
-
-	if (symlink(make_path(app_dir, "ROX"), icon_home))
-	{
-		delayed_error(_("Failed to create symlink '%s':\n%s"), icon_home, g_strerror(errno));
-		open_to_show(icon_home);
-	}
-	g_free(icon_home);
-
+	icon_theme = gtk_icon_theme_get_default();
 	gtk_icon_theme_rescan_if_needed(icon_theme);
 }
 
@@ -1443,42 +1327,16 @@ static GList *build_icon_theme(Option *option, xmlNode *node, guchar *label)
 GtkIconInfo *theme_lookup_icon(const gchar *icon_name, gint size,
 		GtkIconLookupFlags flags)
 {
-	GtkIconInfo *result = gtk_icon_theme_lookup_icon(icon_theme,
-			icon_name, size, flags);
-
-	if (!result && icon_theme != rox_theme)
-	{
-		init_rox_theme();
-		result = gtk_icon_theme_lookup_icon(rox_theme,
-			icon_name, size, flags);
-	}
-	if (!result && icon_theme != gnome_theme)
-	{
-		init_gnome_theme();
-		result = gtk_icon_theme_lookup_icon(gnome_theme,
-			icon_name, size, flags);
-	}
-	return result;
+	return gtk_icon_theme_lookup_icon(icon_theme, icon_name, size, flags);
 }
 
 GdkPixbuf *theme_load_icon(const gchar *icon_name, gint size,
 		GtkIconLookupFlags flags, GError **perror)
 {
-	GdkPixbuf *result = gtk_icon_theme_load_icon(icon_theme,
-			icon_name, size, flags, NULL);
-
-	if (!result && icon_theme != gnome_theme)
-	{
-		init_gnome_theme();
-		result = gtk_icon_theme_load_icon(gnome_theme,
-			icon_name, size, flags, NULL);
-	}
-	if (!result && icon_theme != rox_theme)
-	{
-		init_rox_theme();
-		result = gtk_icon_theme_load_icon(rox_theme,
-			icon_name, size, flags, perror);
-	}
-	return result;
+	return gtk_icon_theme_load_icon(icon_theme,
+					icon_name,
+					size,
+					flags,
+					NULL);
 }
 
