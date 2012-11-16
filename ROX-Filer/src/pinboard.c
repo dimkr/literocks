@@ -47,7 +47,6 @@
 #include "bind.h"
 #include "icon.h"
 #include "run.h"
-#include "appinfo.h"
 #include "menu.h"
 #include "xml.h"
 #include "wrapped.h"
@@ -680,46 +679,6 @@ static void pinboard_wink_item(PinIcon *pi, gboolean timeout)
 	}
 }
 
-/* 'app' is saved as the new application to set the backdrop. It will then be
- * run, and should communicate with the filer as described in the manual.
- */
-void pinboard_set_backdrop_app(const gchar *app)
-{
-	XMLwrapper *ai;
-	DirItem *item;
-	gboolean can_set;
-
-	item = diritem_new("");
-	diritem_restat(app, item, NULL);
-	if (!(item->flags & ITEM_FLAG_APPDIR))
-	{
-		delayed_error(_("The backdrop handler must be an application "
-				"directory. Drag an application directory "
-				"into the Set Backdrop dialog box, or (for "
-				"programmers) pass it to the SOAP "
-				"SetBackdropApp method."));
-		diritem_free(item);
-		return;
-	}
-	
-	ai = appinfo_get(app, item);
-	diritem_free(item);
-
-	can_set = ai && xml_get_section(ai, ROX_NS, "CanSetBackdrop") != NULL;
-	if (ai)
-		g_object_unref(ai);
-
-	if (can_set)
-		pinboard_set_backdrop(app, BACKDROP_PROGRAM);
-	else
-		delayed_error(_("You can only set the backdrop to an image "
-				"or to a program which knows how to "
-				"manage ROX-Filer's backdrop.\n\n"
-				"Programmers: the application's AppInfo.xml "
-				"must contain the CanSetBackdrop element, as "
-				"described in ROX-Filer's manual."));
-}
-
 /* Open a dialog box allowing the user to set the backdrop */
 static void pinboard_set_backdrop_box(void)
 {
@@ -917,13 +876,8 @@ static void drag_backdrop_dropped(GtkWidget	*drop_box,
 			g_strerror(errno));
 		return;
 	}
-
-	if (S_ISDIR(info.st_mode))
-	{
-		/* Use this program to set the backdrop */
-		pinboard_set_backdrop_app(path);
-	}
-	else if (S_ISREG(info.st_mode))
+	
+	if (S_ISREG(info.st_mode))
 		pinboard_set_backdrop(path, radios_get_value(radios));
 	else
 		delayed_error(_("Only files (and certain applications) can be "
@@ -2173,30 +2127,8 @@ static void pin_icon_destroyed(PinIcon *pi)
 /* Set the tooltip */
 static void pin_icon_set_tip(PinIcon *pi)
 {
-	XMLwrapper	*ai;
-	xmlNode 	*node;
-	Icon		*icon = (Icon *) pi;
-
 	g_return_if_fail(pi != NULL);
-
-	ai = appinfo_get(icon->path, icon->item);
-
-	if (ai && ((node = xml_get_section(ai, NULL, "Summary"))))
-	{
-		guchar *str;
-		str = xmlNodeListGetString(node->doc,
-				node->xmlChildrenNode, 1);
-		if (str)
-		{
-			gtk_tooltips_set_tip(tooltips, pi->win, str, NULL);
-			g_free(str);
-		}
-	}
-	else
-		gtk_tooltips_set_tip(tooltips, pi->widget, NULL, NULL);
-
-	if (ai)
-		g_object_unref(ai);
+	gtk_tooltips_set_tip(tooltips, pi->widget, NULL, NULL);
 }
 
 static void pinboard_show_menu(GdkEventButton *event, PinIcon *pi)

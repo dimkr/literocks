@@ -263,12 +263,6 @@ gboolean run_diritem(const guchar *full_path,
 	switch (item->base_type)
 	{
 		case TYPE_DIRECTORY:
-			if (item->flags & ITEM_FLAG_APPDIR && !edit)
-			{
-				run_app(full_path);
-				return TRUE;
-			}
-
 			if (item->flags & ITEM_FLAG_MOUNT_POINT)
 			{
 				open_mountpoint(full_path, item,

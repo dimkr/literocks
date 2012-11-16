@@ -38,7 +38,6 @@
 #include "diritem.h"
 #include "type.h"
 #include "infobox.h"
-#include "appinfo.h"
 #include "dnd.h"	/* For xa_string */
 #include "run.h"	/* For show_help_files() */
 #include "xml.h"
@@ -206,7 +205,6 @@ static GtkWidget *make_vbox(const guchar *path, GObject *window)
 {
 	DirItem		*item;
 	GtkBox		*vbox;
-	XMLwrapper	*ai;
 	xmlNode 	*about = NULL;
 	gchar		*help_dir;
 	GtkWidget	*hbox, *name, *label;
@@ -216,10 +214,6 @@ static GtkWidget *make_vbox(const guchar *path, GObject *window)
 	
 	item = diritem_new(g_basename(path));
 	diritem_restat(path, item, NULL);
-
-	ai = appinfo_get(path, item);
-	if (ai)
-		about = xml_get_section(ai, NULL, "About");
 
 	vbox = GTK_BOX(gtk_vbox_new(FALSE, 4));
 	gtk_container_set_border_width(GTK_CONTAINER(vbox), 4);
@@ -289,9 +283,7 @@ static GtkWidget *make_vbox(const guchar *path, GObject *window)
 				   FALSE, TRUE, 0);
 	}
 
-	if (about)
-		add_frame(vbox, make_about(path, ai));
-	else if (item->mime_type == application_x_desktop)
+	if (item->mime_type == application_x_desktop)
 	{
 		add_frame(vbox, make_about_desktop(path));
 	}
@@ -314,9 +306,6 @@ static GtkWidget *make_vbox(const guchar *path, GObject *window)
 		gtk_box_pack_start(vbox, label, FALSE, TRUE, 2);
 	    gtk_box_pack_start(vbox, make_unmount_options(path), FALSE, TRUE, 0);
 	}
-
-	if (ai)
-		g_object_unref(ai);
 
 	diritem_free(item);
 
@@ -1073,9 +1062,6 @@ static const gchar *pretty_type(DirItem *file, const guchar *path)
 
 	if (file->flags & ITEM_FLAG_SYMLINK)
 		return _("Symbolic link");
-
-	if (file->flags & ITEM_FLAG_APPDIR)
-		return _("ROX application");
 
 	if (file->flags & ITEM_FLAG_MOUNT_POINT)
 	{

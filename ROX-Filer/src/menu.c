@@ -527,8 +527,7 @@ static GList *menu_from_dir(GtkWidget *menu, const gchar *dir_name,
 		/* If it is a directory (but NOT an AppDir) and we are
 		 * recursing then set up a sub menu.
 		 */
-		if (recurse && ditem->base_type == TYPE_DIRECTORY &&
-			   !(ditem->flags & ITEM_FLAG_APPDIR))
+		if (recurse && ditem->base_type == TYPE_DIRECTORY)
 		{
 			GtkWidget *sub;
 			GList *new_widgets;

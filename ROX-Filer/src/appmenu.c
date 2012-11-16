@@ -42,7 +42,6 @@
 #include "appmenu.h"
 #include "dir.h"
 #include "type.h"
-#include "appinfo.h"
 #include "xml.h"
 #include "run.h"
 #include "diritem.h"
@@ -377,50 +376,5 @@ static inline gboolean is_dir(const char *dir)
 /* Adds to current_items */
 static void build_app_menu(const char *app_dir, DirItem *app_item)
 {
-	XMLwrapper	*ai = NULL;
-	xmlNode	*node;
-	GtkWidget *item;
-	char *help_dir;
-
-	ai = appinfo_get(app_dir, app_item);
-	if (ai)
-	{
-		node = xml_get_section(ai, NULL, "AppMenu");
-		if (node)
-			node = node->xmlChildrenNode;
-	}
-	else
-	{
-		if (app_item->flags & ITEM_FLAG_APPDIR)
-			node = NULL;
-		else
-		{
-			/* Not an application AND no AppInfo */
-			build_menu_for_type(app_item->mime_type);
-			return;
-		}
-	}
-
-	/* Add the menu entries */
-	for (; node; node = node->next)
-	{
-		item = create_menu_item(node);
-
-		if (item)
-			current_items = g_list_prepend(current_items, item);
-	}
-
-	help_dir = g_build_filename(app_dir, "Help", NULL);
-	if (is_dir(help_dir))
-	{
-		item = gtk_image_menu_item_new_from_stock(GTK_STOCK_HELP, NULL);
-		gtk_widget_show(item);
-		current_items = g_list_prepend(current_items, item);
-		g_signal_connect(item, "activate", G_CALLBACK(show_app_help), NULL);
-		gtk_label_set_text(GTK_LABEL(GTK_BIN(item)->child), _("Help"));
-	}
-	g_free(help_dir);
-
-	if (ai)
-		g_object_unref(ai);
+	build_menu_for_type(app_item->mime_type);
 }

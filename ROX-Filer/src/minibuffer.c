@@ -430,8 +430,7 @@ static void complete(FilerWindow *filer_window)
 
 		new = make_path(filer_window->sym_path, item->leafname);
 
-		if (item->base_type == TYPE_DIRECTORY &&
-				(item->flags & ITEM_FLAG_APPDIR) == 0)
+		if (item->base_type == TYPE_DIRECTORY)
 			new = make_path(new, "");
 
 		gtk_entry_set_text(entry, new);

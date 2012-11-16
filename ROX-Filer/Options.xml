@@ -165,7 +165,7 @@ indicator'>If this is on then files which have one or more extended attributes s
   </section>
 
   <section title='Desktop'>
-    <label help='1'>When run by a session manager program (such as ROX-Session) the filer can open up a panel and/or the pinboard.  Here you configure which.</label>
+    <label help='1'>When run by a session manager program (such as ROX-Session) the filer can open up a pinboard.  Here you configure which.</label>
 
     <frame label='Pinboard'>
       <entry name='session_pinboard_name'>Enter the name of the pinboard to show here.</entry>

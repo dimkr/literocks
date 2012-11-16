@@ -164,7 +164,6 @@ enum
 
 	/* These are purely for colour allocation */
 	TYPE_EXEC,
-	TYPE_APPDIR,
 };
 
 /* The namespaces for the SOAP messages */

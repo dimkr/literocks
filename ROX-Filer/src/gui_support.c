@@ -1539,20 +1539,6 @@ void launch_uri(GObject *button, const char *uri)
 			argv[0] = uri_0launch;
 		else
 		{
-			const char *appname=g_object_get_data(button,
-							      "appname");
-
-			if (appname)
-			{
-				gchar *path=find_app(appname);
-				if(path)
-				{
-					run_by_path(path);
-					g_free(path);
-					return;
-				}
-			}
-			
 			delayed_error(_("This program (%s) cannot be run, "
 				"as the 0launch command is not available. "
 				"It can be downloaded from here:\n\n"

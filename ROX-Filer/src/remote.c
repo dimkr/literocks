@@ -96,7 +96,6 @@ static xmlNodePtr rpc_Unmount(GList *args);
 static xmlNodePtr rpc_PinboardAdd(GList *args);
 static xmlNodePtr rpc_PinboardRemove(GList *args);
 static xmlNodePtr rpc_SetBackdrop(GList *args);
-static xmlNodePtr rpc_SetBackdropApp(GList *args);
 
 static xmlNodePtr rpc_SetIcon(GList *args);
 static xmlNodePtr rpc_UnsetIcon(GList *args);
@@ -142,7 +141,6 @@ gboolean remote_init(xmlDocPtr rpc, gboolean new_copy)
 	soap_register("Unmount", rpc_Unmount, "MountPoints", "Quiet");
 
 	soap_register("SetBackdrop", rpc_SetBackdrop, "Filename,Style", NULL);
-	soap_register("SetBackdropApp", rpc_SetBackdropApp, "App", NULL);
 	soap_register("PinboardAdd", rpc_PinboardAdd, "Path", "X,Y,Label,Shortcut,Args,Locked,Update");
 	soap_register("PinboardRemove", rpc_PinboardRemove, "Path", "Label");
  	soap_register("SetIcon", rpc_SetIcon, "Path,Icon", NULL);
@@ -888,20 +886,6 @@ static xmlNodePtr rpc_SetBackdrop(GList *args)
 
 	g_free(file);
 	g_free(style);
-
-	return NULL;
-}
-
-/* args = App */
-static xmlNodePtr rpc_SetBackdropApp(GList *args)
-{
-	char *app;
-
-	app = string_value(ARG(0));
-
-	pinboard_set_backdrop_app(app);
-
-	g_free(app);
 
 	return NULL;
 }

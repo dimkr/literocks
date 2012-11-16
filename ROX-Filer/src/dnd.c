@@ -511,8 +511,7 @@ const guchar *dnd_motion_item(GdkDragContext *context, DirItem **item_p)
 
 	/* Drop onto a program/directory of some sort */
 
-	if (item->base_type == TYPE_DIRECTORY &&
-			!(item->flags & ITEM_FLAG_APPDIR))
+	if (item->base_type == TYPE_DIRECTORY)
 	{
 		/* A normal directory */
 		if (provides(context, text_uri_list) ||

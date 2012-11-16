@@ -335,9 +335,6 @@ void pixmap_background_thumb(const gchar *path, GFunc callback, gpointer data)
 			item = diritem_new(g_basename(thumb_prog));
 
 			diritem_restat(thumb_prog, item, NULL);
-			if (item->flags & ITEM_FLAG_APPDIR)
-				thumb_prog = g_strconcat(thumb_prog, "/AppRun",
-						       NULL);
 
 			execl(thumb_prog, thumb_prog, path,
 			      thumbnail_path(path),

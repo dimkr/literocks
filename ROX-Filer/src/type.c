@@ -214,8 +214,6 @@ const char *basetype_name(DirItem *item)
 		return _("Sym link");
 	else if (item->flags & ITEM_FLAG_MOUNT_POINT)
 		return _("Mount point");
-	else if (item->flags & ITEM_FLAG_APPDIR)
-		return _("App dir");
 
 	switch (item->base_type)
 	{
@@ -713,7 +711,7 @@ static void drag_app_dropped(GtkWidget	*drop_box,
 
 	item = diritem_new("");
 	diritem_restat(app, item, NULL);
-	if (item->flags & ITEM_FLAG_APPDIR || EXECUTABLE_FILE(item))
+	if (EXECUTABLE_FILE(item))
 	{
 		guchar	*path;
 
@@ -1148,8 +1146,6 @@ GdkColor *type_get_colour(DirItem *item, GdkColor *normal)
 
 	if (EXECUTABLE_FILE(item))
 		type = TYPE_EXEC;
-	else if (item->flags & ITEM_FLAG_APPDIR)
-		type = TYPE_APPDIR;
 
 	g_return_val_if_fail(type >= 0 && type < NUM_TYPE_COLOURS, normal);
 

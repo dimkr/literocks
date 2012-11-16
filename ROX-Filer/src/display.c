@@ -319,8 +319,7 @@ void draw_small_icon(GdkWindow *window, GtkStyle *style, GdkRectangle *area,
  * passed as arguments to display_set_sort_fn().
  */
 
-#define IS_A_DIR(item) (item->base_type == TYPE_DIRECTORY && \
-			!(item->flags & ITEM_FLAG_APPDIR))
+#define IS_A_DIR(item) (item->base_type == TYPE_DIRECTORY)
 
 #define SORT_DIRS	\
 	if (o_display_dirs_first.int_value) {	\
@@ -353,9 +352,6 @@ int sort_by_type(const void *item1, const void *item2)
 
 	int	 diff = i1->base_type - i2->base_type;
 
-	if (!diff)
-		diff = (i1->flags & ITEM_FLAG_APPDIR)
-		     - (i2->flags & ITEM_FLAG_APPDIR);
 	if (diff)
 		return diff > 0 ? 1 : -1;
 
